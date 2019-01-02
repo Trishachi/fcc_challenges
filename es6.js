@@ -24,16 +24,14 @@
 
 
 // Codes
+
+// ES6- 1: Write Higher Order Arrow Functions
 const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
-function checkInterger(num){
-  if ( num.isInteger){
-    return num;
-  }
-}
 const squareList = (arr) => {
   "use strict";
   // change code below this line
-  const squaredIntegers = arr.map(checkInterger);
+  const squaredIntegers = arr.filter( (num) => (Number.isInteger(num) && (num > 0)))
+                             .map((num) => Math.pow(num, 2) );
   // change code above this line
   return squaredIntegers;
 };
