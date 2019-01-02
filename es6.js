@@ -19,14 +19,21 @@
 // The filter() method creates an array filled with all array elements that pass a test (provided as a function).
 // Synyax - array.filter(function(currentValue, index, arr), thisValue)
 
+// The reduce() method reduces the array to a single value. It executes a provided function for each value of the array (from left-to-right).
+// Syntax - array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
 
 
 // Codes
 const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+function checkInterger(num){
+  if ( num.isInteger){
+    return num;
+  }
+}
 const squareList = (arr) => {
   "use strict";
   // change code below this line
-  const squaredIntegers = arr;
+  const squaredIntegers = arr.map(checkInterger);
   // change code above this line
   return squaredIntegers;
 };
