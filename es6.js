@@ -1,15 +1,15 @@
 // Notes
 // objects (inc arrays and functions) assigned to a variable using const are still mutable.
 // Using const only prevents reassignment of the variable identifier.
-
+//
 // To ensure you object does not change, use the Object.freeze(obj) function.Once the object is frozen, you can no longer add, update, or delete properties from it.
 // Any attempt at changing the object will be rejected without an error.
-
+//
 // Arrow Function Syntax
 // const myFunc = () => {
-//   const myVar = "value";
-//   return myVar;
-// } or
+// //const myVar = "value";
+// return myVar;
+// //} or
 // const myFunc = () => "value" ==> when there is no function body
 
 // The map() method creates a new array with the results of calling a function for every array element.
@@ -38,6 +38,15 @@
 // console.log(a, b, c); // 1, 2, 5
 
 // The rest element only works correctly as the last variable in the list. As in, you cannot use the rest operator to catch a subarray that leaves out last element of the original array.
+
+// Template literals allow you to create multi-line strings and to use string interpolation features to create strings.
+// Template literal with multi-line and string interpolation
+// const greeting = `Hello, my name is ${person.name}!
+// I am ${person.age} years old.`;
+
+
+
+
 
 // Codes
 
@@ -125,24 +134,84 @@
 
 // ES6 - 7: Use Destructuring Assignment to Pass an Object as a Function's Parameters
 // Use destructuring assignment within the argument to the function half to send only max and min inside the function.
-const stats = {
-  max: 56.78,
-  standard_deviation: 4.34,
-  median: 34.54,
-  mode: 23.87,
-  min: -0.75,
-  average: 35.85
-};
-const half = (function() {
-  "use strict"; // do not change this line
+// const stats = {
+//   max: 56.78,
+//   standard_deviation: 4.34,
+//   median: 34.54,
+//   mode: 23.87,
+//   min: -0.75,
+//   average: 35.85
+// };
+// const half = (function() {
+//   "use strict"; // do not change this line
+//
+//   // change code below this line
+//   return function half({max, min}) {
+//     // use function argument destructuring
+//     return (max + min) / 2.0;
+//   };
+//   // change code above this line
+//
+// })();
+// console.log(stats); // should be object
+// console.log(half(stats)); // should be 28.015
 
-  // change code below this line
-  return function half({max, min}) {
-    // use function argument destructuring
-    return (max + min) / 2.0;
-  };
-  // change code above this line
+// ES6 - 8: Create Strings using Template Literals
+// Use template literal syntax with backticks to display each entry of the result object's failure array.
+// Each entry should be wrapped inside an li element with the class attribute text-warning, and listed within the resultDisplayArray.
+// const result = {
+//   success: ["max-length", "no-amd", "prefer-arrow-functions"],
+//   failure: ["no-var", "var-on-top", "linebreak"],
+//   skipped: ["id-blacklist", "no-dup-keys"]
+// };
+// function makeList(arr) {
+//   "use strict";
+//
+//   // change code below this line
+//   const resultDisplayArray =
+//       arr.map(fail => `<li class="text-warning">${fail}</li>`);
+//   // change code above this line
+//   return resultDisplayArray;
+// }
+// /**
+//  * makeList(result.failure) should return:
+//  * [ `<li class="text-warning">no-var</li>`,
+//  *   `<li class="text-warning">var-on-top</li>`,
+//  *   `<li class="text-warning">linebreak</li>` ]
+//  **/
+// const resultDisplayArray = makeList(result.failure);
+// console.log(resultDisplayArray);
 
-})();
-console.log(stats); // should be object
-console.log(half(stats)); // should be 28.015
+// ES6 - 9: Write Concise Object Literal Declarations Using Simple Fields
+// Use simple fields with object literals to create and return a Person object.
+// const createPerson = (name, age, gender) => {
+//   "use strict";
+//   // change code below this line
+//   return {
+//     name, age, gender
+//   };
+//   // change code above this line
+// };
+// console.log(createPerson("Zodiac Hasbro", 56, "male")); // returns a proper object
+
+// ES6 - 10: Write Concise Declarative Functions with ES6
+// Refactor the function setGear inside the object bicycle to use the shorthand syntax described above.
+//original code
+// const bicycle = {
+//   gear: 2,
+//   setGear: function(newGear) {
+//     "use strict";
+//     this.gear = newGear;
+//   }
+// };
+// change code below this line
+// const bicycle = {
+//   gear: 2,
+//   setGear(newGear) {
+//     "use strict";
+//     this.gear = newGear;
+//   }
+// };
+// // change code above this line
+// bicycle.setGear(48);
+// console.log(bicycle.gear);
