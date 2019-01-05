@@ -44,9 +44,24 @@
 // const greeting = `Hello, my name is ${person.name}!
 // I am ${person.age} years old.`;
 
+// Getters and Setters - they hide internal implementation details.
+// Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
+// Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function.
 
+// Import vs Require
+// with import, we can choose which parts of a module or file to load into a given file, saving time and memory.
+// import won't work on a browser directly. However, we can use various tools to create code out of this to make it work in browser.
+// In most cases, the file path requires a ./ before it; otherwise, node will look in the node_modules directory first trying to load it as a dependency.
+//import and export are non-browser features
 
+// with export,  we can import any code we export into another file with the import syntax
+//export default is used to export only one value from a file.  It is also used to create a fallback value for a file or module.
+// Since export default is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file.
+// Additionally, you cannot use export default with var, let, or const
 
+//Importing a default export uses a different syntax
+// The syntax differs in one key place - the imported value, add, is not surrounded by curly braces, {}. Unlike exported values, the primary method of importing a
+// default export is to simply write the value's name after import.
 
 // Codes
 
@@ -215,3 +230,59 @@
 // // change code above this line
 // bicycle.setGear(48);
 // console.log(bicycle.gear);
+
+// ES6 - 11: Use class Syntax to Define a Constructor Function
+// Use class keyword and write a proper constructor to create the Vegetable class.
+// The Vegetable lets you create a vegetable object, with a property name, to be passed to constructor.
+// function makeClass() {
+//   "use strict";
+//   /* Alter code below this line */
+//   class Vegetable {
+//     constructor(name) {
+//       this.name = name;
+//     }
+//   }
+//   /* Alter code above this line */
+//   return Vegetable;
+// }
+// const Vegetable = makeClass();
+// const carrot = new Vegetable('carrot');
+// console.log(carrot.name); // => should be 'carrot'
+
+
+// ES6 - 12: Use getters and setters to Control Access to an Object
+// Use class keyword to create a Thermostat class. The constructor accepts Fahrenheit temperature.
+// Now create getter and setter in the class, to obtain the temperature in Celsius scale.
+// Remember that C = 5/9 * (F - 32) and F = C * 9.0 / 5 + 32, where F is the value of temperature in Fahrenheit scale, and C is the value of the same temperature in Celsius scale
+function makeClass() {
+  "use strict";
+  /* Alter code below this line */
+  class Thermostat {
+    constructor(Fahrenheit) {
+      this._celsius = 5/9 * (Fahrenheit - 32);
+    }
+    //getter
+    get temp(){
+      return this.temp;
+    }
+    //setter
+    set temp(temperature){
+      this.temp = temperature;
+    }
+  }
+  /* Alter code above this line */
+  return Thermostat;
+}
+const Thermostat = makeClass();
+const thermos = new Thermostat(76); // setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in C
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in C
+console.log(temp);
+
+// ES6 - 13: Understand the Differences Between import and require
+// Add the appropriate import statement that will allow the current file to
+// use the capitalizeString function. The file where this function lives is called
+//  "string_functions", and it is in the same directory as the current file.
+// "use strict"
+// import { capitalizeString } from "string_functions";
