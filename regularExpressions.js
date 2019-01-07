@@ -20,7 +20,17 @@
 //n+ -	Matches any string that contains at least one n
 //n* -	Matches any string that contains zero or more occurrences of n
 //n? - Lazy matching - Matches any string that contains zero or one occurrences of n
-
+//[^] - ^ inside a character set = negated character set = Finds things that will not be matched
+//^ - ^ outside a character set = Finds patterns at the beginning of strings
+//$ - Finds patterns at the end of a string
+//(x|y)	- Find any of the alternatives specified
+// \w	- Find a word character (/[A-Za-z0-9]_/ == /\w/)
+// \W	- Find a non-word character (/[^A-Za-z0-9_]/ == /\W/)
+// \d == /[0-9]/ - Matches numbers/digits
+// \D == /[^0-9]/ - Matches non-digits/non-numbers
+// n{X}	- Matches any string that contains a sequence of X n's
+// n{X,Y} - Matches any string that contains a sequence of X to Y n's
+// n{X,} -	Matches any string that contains a sequence of at least X n's
 
 
 //Codes
@@ -102,7 +112,64 @@
 // Regular Expressions - 11: Find Characters with Lazy Matching
 // Fix the regex /<.*>/ to return the HTML tag <h1> and not the text "<h1>Winter is coming</h1>".
 // Remember the wildcard . in a regular expression matches any character.
-let text = "<h1>Winter is coming</h1>";
-let myRegex = /<.*?>/; // Change this line
-let result = text.match(myRegex);
+// let text = "<h1>Winter is coming</h1>";
+// let myRegex = /<.*?>/; // Change this line
+// let result = text.match(myRegex);
+// console.log(result);
+
+// Regular Expressions - 12: Find One or More Criminals in a Hunt
+// Write a greedy regex that finds one or more criminals within a group of other people.
+// A criminal is represented by the capital letter C.
+// example crowd gathering
+// let crowd = 'P2P1P5P4CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCP3';
+// let reCriminals = /c+/gi; // Change this line
+//
+// let matchedCriminals = crowd.match(reCriminals);
+// console.log(matchedCriminals + " Number of Criminals: " + String(matchedCriminals).length);
+
+// Regular Expressions - 13: Match Beginning String Patterns
+//Use the caret character in a regex to find "Cal" only in the beginning of the string rickyAndCal.
+// let rickyAndCal = "Cal and Ricky both like racing.";
+// let calRegex = /^Cal/; // Change this line
+// let result = calRegex.test(rickyAndCal);
+// console.log(result);
+
+// Regular Expressions - 13: Match Ending String Patterns
+//Use the anchor character ($) to match the string "caboose" at the end of the string caboose.
+// let caboose = "The last car on a train is the caboose";
+// let lastRegex = /caboose$/; // Change this line
+// let result = lastRegex.test(caboose);
+// console.log(result);
+
+// Regular Expressions - 13: Match All Letters and Numbers
+//Use the shorthand character class \w to count the number of alphanumeric characters in various quotes and strings.
+// let quoteSample = "The five boxing wizards jump quickly.";
+// let alphabetRegexV2 = /\w/g; // Change this line
+// let result = quoteSample.match(alphabetRegexV2).length;
+// console.log(result);
+
+// Regular Expressions - 14: Match Everything But Letters and Numbers
+//Use the shorthand character class \W to count the number of non-alphanumeric characters in various quotes and strings.
+// let quoteSample = "123 456 7890 ABC def GHI jkl MNO pqr STU vwx YZ.";
+// let nonAlphabetRegex = /\W/g; // Change this line
+// let result = quoteSample.match(nonAlphabetRegex).length;
+// console.log(result);
+
+//Regular Expressions - 15: Match All Non-Numbers
+//Use the shorthand character class for non-digits \D to count how many non-digits are in movie titles.
+// let numString = "2001: A Space Odyssey";
+// let noNumRegex = /\D/g; // Change this line
+// let result = numString.match(noNumRegex).length;
+// console.log(result);
+
+// Regular Expressions - 16: Restrict Possible Usernames
+//Change the regex userCheck to fit the constraints listed
+// 1) The only numbers in the username have to be at the end.
+// There can be zero or more of them at the end.
+// 2) Username letters can be lowercase and uppercase.
+// 3) Usernames have to be at least two characters long.
+// A two-letter username can only use alphabet letter characters.
+let username = "RegexGuru";
+let userCheck = /^[a-z]{2,}\d*$/i; // Change this line
+let result = userCheck.test(username);
 console.log(result);
