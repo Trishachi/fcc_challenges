@@ -12,6 +12,17 @@
 //and returns it as a match. The alternative is called a lazy match, which finds the smallest possible part of the
 //string that satisfies the regex pattern.
 
+// Lookaheads are patterns that tell JavaScript to look-ahead in your string to check for patterns further along.
+// This can be useful when you want to search for multiple patterns over the same string.
+// There are two kinds of lookaheads: positive lookahead (?=...) and negative lookahead(?!...).
+// A positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it.
+// A positive lookahead is used as (?=...) where the ... is the required part that is not matched.
+
+// On the other hand, a negative lookahead will look to make sure the element in the search pattern is not there.
+// A negative lookahead is used as (?!...) where the ... is the pattern that you do not want to be there.
+// The rest of the pattern is returned if the negative lookahead part is not present.
+
+
 //Regular expressions modifiers and patterns
 //i	- Perform case-insensitive matching
 //g - Perform a global match (find all matches rather than stopping after the first match)
@@ -31,6 +42,9 @@
 // n{X}	- Matches any string that contains a sequence of X n's
 // n{X,Y} - Matches any string that contains a sequence of X to Y n's
 // n{X,} -	Matches any string that contains a sequence of at least X n's
+// \s - 	Find a whitespace character  == [\r\t\f\n\v] == carriage return, tab (horizntal), form feed, new line characters and vertical tab
+// \S - 	Find a non-whitespace character ==  [^ \r\t\f\n\v]
+//quantity specifiers - {lower limit, upper limit}
 
 
 //Codes
@@ -169,7 +183,35 @@
 // 2) Username letters can be lowercase and uppercase.
 // 3) Usernames have to be at least two characters long.
 // A two-letter username can only use alphabet letter characters.
-let username = "RegexGuru";
-let userCheck = /^[a-z]{2,}\d*$/i; // Change this line
-let result = userCheck.test(username);
+// let username = "RegexGuru";
+// let userCheck = /^[a-z]{2,}\d*$/i; // Change this line
+// let result = userCheck.test(username);
+// console.log(result);
+
+// Regular Expressions - 17: Specify Upper and Lower Number of Matches
+// Change the regex ohRegex to match only 3 to 6 letter h's in the word "Oh no".
+// let ohStr = "ohhhhhh no";
+// let ohRegex = /Oh{3,6}\sno/i; // Change this line
+// let result = ohRegex.test(ohStr);
+// console.log(result);
+
+// Regular Expressions - 18: Specify Only the Lower Number of Matches
+// Change the regex haRegex to match the word "Hazzah" only when it has four or more letter z's.
+// let haStr = "Hazzzzzzah";
+// let haRegex = /Haz{4,30}ah/i; // Change this line
+// let result = haRegex.test(haStr);
+// console.log(result);
+
+// Regular Expressions - 19: Check for All or None
+// Change the regex favRegex to match both the American English (favorite) and the British English (favourite) version of the word.
+// let favWord = "favorite";
+// let favRegex = /favou?rite/; // Change this line
+// let result = favRegex.test(favWord);
+// console.log(result);
+
+// Regular Expressions - 20: Positive and Negative Lookahead
+// Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long and have two consecutive digits.
+let sampleWord = "123";
+let pwRegex = /(?=\w{5,})(?=\D*\d{2,})/i; // Change this line
+let result = pwRegex.test(sampleWord);
 console.log(result);
