@@ -211,7 +211,34 @@
 
 // Regular Expressions - 20: Positive and Negative Lookahead
 // Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long and have two consecutive digits.
-let sampleWord = "123";
-let pwRegex = /(?=\w{5,})(?=\D*\d{2,})/i; // Change this line
-let result = pwRegex.test(sampleWord);
+// let sampleWord = "123";
+// let pwRegex = /(?=\w{5,})(?=\D*\d{2,})/i; // Change this line
+// let result = pwRegex.test(sampleWord);
+// console.log(result);
+
+
+// Regular Expressions - 22: Use Capture Groups to Search and Replace
+// Write a regex so that it will search for the string "good". Then update the replaceText variable to replace "good" with "okey-dokey".
+// let huhText = "This sandwich is good.";
+// let fixRegex = /good/; // Change this line
+// let replaceText = "okey-dokey"; // Change this line
+// let result = huhText.replace(fixRegex, replaceText);
+// console.log(result);
+
+// Regular Expressions - 22: Remove Whitespace from Start and End
+// Write a regex and use the appropriate string methods to remove whitespace at the beginning and end of strings.
+// let hello = "   Hello, World!  ";
+// let wsRegex = /^\s+|\s+$/g; // Change this line
+// let result = hello.replace(wsRegex, ""); // Change this line
+// console.log(hello.trim()); // can also be achiveved using the trim() method
+// console.log(result);
+
+// Regular Expressions - 21: Reuse Patterns Using Capture Groups
+// Use capture groups in reRegex to match numbers that are repeated only three times in a string, each separated by a space.
+let repeatNum = "42 42 42 42";
+//the caret (^) and dollar sign ($) tells the regex where to star and where to stop
+// ie it must start at the beggining and stop after 3 occurences
+let reRegex = /^(\d+)\s\1\s\1$/; // Change this line
+let result = reRegex.test(repeatNum);
 console.log(result);
+console.log(repeatNum.match(reRegex));
