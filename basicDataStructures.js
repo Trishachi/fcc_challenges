@@ -10,6 +10,8 @@
 //array.pop() - removes the last element from an arrays - takes no parameters
 //array.shift() - removes the first element in an array - takes no parameters
 //splice(start, no of elemets to remove, new element) - removes any number of consecutive elements from anywhere in an array.
+        //modifies the original array
+//slice(start, stop) -  rather than modifying an array, copies, or extracts, a given number of elements to a new array, leaving the array it is called upon untouched.
 
 
 
@@ -57,11 +59,82 @@
 //array of HTML colors as an argument. Modify the function using
 //splice() to remove the first two elements of the array and add
 //'DarkSalmon' and 'BlanchedAlmond' in their respective places.
-function htmlColorNames(arr) {
-  // change code below this line
-  arr.splice(0, 2, "DarkSalmon", "BlanchedAlmond");
-  // change code above this line
-  return arr;
-}
-// do not change code below this line
-console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurqoise', 'FireBrick']));
+// function htmlColorNames(arr) {
+//   // change code below this line
+//   arr.splice(0, 2, "DarkSalmon", "BlanchedAlmond");
+//   // change code above this line
+//   return arr;
+// }
+// // do not change code below this line
+// console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurqoise', 'FireBrick']));
+
+
+// Basic Data Structures - 5: Copy Array Items Using slice()
+//Modify the function using slice() to extract information from the argument array and return a new array that contains the elements 'warm' and 'sunny'.
+// function forecast(arr) {
+//   // change code below this line
+//     let todaysWeather = arr.slice(2,4);
+//     return todaysWeather;
+// }
+// // do not change code below this line
+// console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
+
+// Basic Data Structures 6: Copy an Array with the Spread Operator
+//The function is supposed to return a new array made up of num copies of arr.
+//We have done most of the work for you, but it doesn't work quite right yet.
+//Modify the function using spread syntax so that it works correctly
+// function copyMachine(arr, num) {
+//   let newArr = [];
+//   while (num >= 1) {
+//     // change code below this line
+//     newArr.push([...arr]);
+//     // change code above this line
+//     num--;
+//   }
+//   return newArr;
+// }
+// // change code here to test different cases:
+// console.log(copyMachine(["it works"], 3));
+
+// Basic Data Structures - 7: Combine Arrays with the Spread Operator
+//modify the function using the spread operator so that it returns the array ['learning', 'to', 'code', 'is', 'fun'].
+// function spreadOut() {
+//   let fragment = ['to', 'code'];
+//   let sentence = ['learning', ...fragment, 'is', 'fun']; // change this line
+//   return sentence;
+// }
+// // do not change code below this line
+// console.log(spreadOut());
+
+// Basic Data Structures - 8: Check For The Presence of an Element With indexOf()
+//Modify the function using indexOf() so that it returns true if the passed element exists on the array, and false if it does not.
+// function quickCheck(arr, elem) {
+//   // change code below this line
+// if(arr.indexOf(elem) == -1){
+//   return false;
+// }
+// else {
+//   return true;
+// }
+//   // change code above this line
+// }
+// // change code here to test different cases:
+// console.log(quickCheck(["squash", "onions", "shallots"], "onions"));
+
+// Basic Data Structures - 9: Iterate Through All an Array's Items Using For Loops
+// elem represents an element that may or may not be present on one or more of the
+//arrays nested within arr. Modify the function, using a for loop, to return a filtered
+//version of the passed array such that any array nested within arr containing elem has been removed.
+// function filteredArray(arr, elem) {
+//   let newArr = [];
+//   // change code below this line
+//  for (let i = 0; i < arr.length; i++) {
+//    if (arr[i].indexOf(elem) == -1) {
+//      newArr.push(arr[i]);
+//    }
+//  }
+//   // change code above this line
+//   return newArr;
+// }
+// // change code here to test different cases:
+// console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
