@@ -3,6 +3,8 @@
 //Arrays are mutable and can be programatically modified using methods like shift(), push()etc
 //splice() not only modifies the array it's being called on, but it also returns a new array containing the value of the removed elements:
 
+//Check if an object has a property - using hasOwnProperty() or in
+// Objects.keys(); - Generates an array containg all keys stored in an object. passes in an object as arguement
 
 //Array methods
 //array.push(element/s) - adds elements to the end of an array
@@ -138,3 +140,201 @@
 // }
 // // change code here to test different cases:
 // console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
+
+
+// Basic Data Structures -10: Create complex multi-dimensional arrays
+//Modify myNestedArray, using any combination of strings, numbers, and
+//booleans for data elements, so that it has exactly five levels of depth
+//(remember, the outer-most array is level 1). Somewhere on the third level,
+//include the string 'deep', on the fourth level, include the string 'deeper',
+//and on the fifth level, include the string 'deepest'.
+// let myNestedArray = [
+//   // change code below this line
+//   ['unshift', false, 1, 2, 3, 'complex', 'nested'],
+//   ['loop', 'shift', 6, 7, 1000, 'method'],
+//   ['concat', ['deep', ['deeper', ['deepest'],true], 2], false, true, 'spread', 'array'],
+//   ['mutate', 1327.98, 'splice', 'slice', 'push'],
+//   ['iterate', 1.3849, 7, '8.4876', 'arbitrary', 'depth']
+//   // change code above this line
+// ];
+// console.log(myNestedArray[2][1][1][1]);
+
+// Basic Data Structures -11: Add Key-Value Pairs to JavaScript Objects
+//Using the same syntax, we can also add new key-value pairs to objects.
+//We've created a foods object with three entries. Add three more entries:
+// bananas with a value of 13, grapes with a value of 35, and strawberries with a value of 27.
+// let foods = {
+//   apples: 25,
+//   oranges: 32,
+//   plums: 28
+// };
+// // change code below this line
+// foods.strawberries = 10;
+// foods.grapes = 13;
+// foods.carrots = 5;
+// // change code above this line
+// console.log(foods);
+
+// Basic Data Structures - 12: Access Property Names with Bracket Notation
+//We've defined a function, checkInventory, which receives a scanned item as an argument.
+//Return the current value of the scannedItem key in the foods object. You can assume that
+//only valid keys will be provided as an argument to checkInventory.
+// let foods = {
+//   apples: 25,
+//   oranges: 32,
+//   plums: 28,
+//   bananas: 13,
+//   grapes: 35,
+//   strawberries: 27
+// };
+// // do not change code above this line
+// function checkInventory(scannedItem) {
+//   // change code below this line
+//   return foods[scannedItem];
+// }
+// // change code below this line to test different cases:
+// console.log(checkInventory("strawberries"));
+
+// Basic Data Structures -13: Use the delete Keyword to Remove Object Properties
+//Use the delete keyword to remove the oranges, plums, and strawberries keys from the foods object.
+// let foods = {
+//   apples: 25,
+//   oranges: 32,
+//   plums: 28,
+//   bananas: 13,
+//   grapes: 35,
+//   strawberries: 27
+// };
+// // change code below this line
+// delete foods.oranges;
+// delete foods.plums;
+// delete foods.strawberries;
+// // change code above this line
+// console.log(foods);
+
+// Basic Data Structures - 14: Check if an Object has a Property
+// Finish writing this function so that it returns true only if
+//the users object contains all four names, Alan, Jeff, Sarah,
+//and Ryan, as keys, and false otherwise.
+// let users = {
+//   Alan: {
+//     age: 27,
+//     online: true
+//   },
+//   Jeff: {
+//     age: 32,
+//     online: true
+//   },
+//   Sarah: {
+//     age: 48,
+//     online: true
+//   },
+//   Ryan: {
+//     age: 19,
+//     online: true
+//   }
+// };
+// function isEveryoneHere(obj) {
+//   // change code below this line
+//   if (users.hasOwnProperty('Alan', 'Jeff', 'Sarah', 'Ryan')){
+//     return true;
+//   } else {
+//     return false;
+//   }
+//   // change code above this line
+// }
+// console.log(isEveryoneHere(users));
+
+// Basic Data Structures - 15: Iterate Through the Keys of an Object with a for...in Statement
+//use a for...in statement within this function to loop through the users in the users object
+//and return the number of users whose online property is set to true.
+// let users = {
+//   Alan: {
+//     age: 27,
+//     online: false
+//   },
+//   Jeff: {
+//     age: 32,
+//     online: true
+//   },
+//   Sarah: {
+//     age: 48,
+//     online: false
+//   },
+//   Ryan: {
+//     age: 19,
+//     online: true
+//   }
+// };
+// function countOnline(obj) {
+//   // change code below this line
+//   let count = 0;
+//   for (let user in obj) {
+//     if (obj[user].online === true) {
+//         console.log(user);
+//         count++;
+//     }
+//   }
+//   return count;
+// }
+// console.log(countOnline(users));
+
+// Basic Data Structures - 16: Generate an Array of All Object Keys with Object.keys()
+//Finish writing the getArrayOfUsers function so that it returns an array containing all
+//the properties in the object it receives as an argument.
+// let users = {
+//   Alan: {
+//     age: 27,
+//     online: false
+//   },
+//   Jeff: {
+//     age: 32,
+//     online: true
+//   },
+//   Sarah: {
+//     age: 48,
+//     online: false
+//   },
+//   Ryan: {
+//     age: 19,
+//     online: true
+//   }
+// };
+//
+// function getArrayOfUsers(obj) {
+//   // change code below this line
+//   return Object.keys(obj);
+//   // change code above this line
+// }
+// console.log(getArrayOfUsers(users));
+
+
+// Basic Data Structures - 17: Modify an Array Stored in an Object
+//Finish writing it so that it takes a user object and adds the
+//name of the friend argument to the array stored in user.data.friends and returns that array.
+let user = {
+  name: 'Kenneth',
+  age: 28,
+  data: {
+    username: 'kennethCodesAllDay',
+    joinDate: 'March 26, 2016',
+    organization: 'freeCodeCamp',
+    friends: [
+      'Sam',
+      'Kira',
+      'Tomo'
+    ],
+    location: {
+      city: 'San Francisco',
+      state: 'CA',
+      country: 'USA'
+    }
+  }
+};
+function addFriend(userObj, friend) {
+  // change code below this line
+  (userObj.data.friends).push(friend);
+  return userObj.data.friends;
+   // change code above this line
+}
+console.log(addFriend(user, 'Pete'));
