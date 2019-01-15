@@ -1,3 +1,19 @@
+//Notes
+//3 ways to repeat a string in JavaScript
+// 1 - using a while loop
+// 2 - using recursion
+// 3 - using ES6 repeat() method
+
+//Recursion is a technique for iterating over an operation by having a function
+//call itself repeatedly until it arrives at a result.
+
+//substring() - The substring() method extracts the characters from a string,
+//between two specified indices, and returns the new sub string.
+//string.substring(start, end)
+
+
+//Codes
+
 // Basic Algorithm Scripting: Convert Celsius to Fahrenheit
 //The algorithm to convert from Celsius to Fahrenheit is the temperature in Celsius times 9/5, plus 32.
 // function convertToF(celsius) {
@@ -92,5 +108,56 @@
 //   //Return the final arrays of pushed items
 //   return largestNumbers;
 // }
-//
 // console.log(largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]));
+
+// Basic Algorithm Scripting: Confirm the Ending
+//Check if a string (first argument, str) ends with the given target string (second argument, target)
+// function confirmEnding(str, target) {
+//   let lastRegex = new RegExp(target + '$');
+//   return lastRegex.test(str);
+// }
+// console.log(confirmEnding("Connor", "n"));
+
+// Basic Algorithm Scripting: Repeat a String
+//Repeat a given string str (first argument) for num times (second argument).
+// Return an empty string if num is not a positive number.
+// function repeatStringNumTimes(str, num) {
+  // using the built-in repeat() method
+  // if (num > 0){
+  //   return str.repeat(num);
+  // } else {
+  //   return "";
+  // }
+
+  //using a while loop
+  // let repeatedString = "";
+  // while (num > 0){
+  //   repeatedString += str;
+  //   num--;
+  // }
+  // return repeatedString;
+
+  //using recursive function
+//   if (num <= 0) {
+//     return "";
+//   }
+//   if (num === 1){
+//     return str;
+//   }
+//   else {
+//     return str + repeatStringNumTimes(str, num - 1);
+//   }
+// }
+// console.log(repeatStringNumTimes("abc", 0));
+
+
+// Basic Algorithm Scripting: Truncate a String
+//Truncate a string (first argument) if it is longer than
+//the given maximum string length (second argument). Return the truncated string with a ... ending.
+function truncateString(str, num) {
+  if (str.length > num){
+    return str.substring(0, num) + '...';
+  }
+  return str;
+}
+console.log(truncateString("Absolutely Longer", 2));
