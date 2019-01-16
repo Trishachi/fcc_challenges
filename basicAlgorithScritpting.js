@@ -154,10 +154,65 @@
 // Basic Algorithm Scripting: Truncate a String
 //Truncate a string (first argument) if it is longer than
 //the given maximum string length (second argument). Return the truncated string with a ... ending.
-function truncateString(str, num) {
-  if (str.length > num){
-    return str.substring(0, num) + '...';
-  }
-  return str;
+// function truncateString(str, num) {
+//   if (str.length > num){
+//     return str.substring(0, num) + '...';
+//   }
+//   return str;
+// }
+// console.log(truncateString("Absolutely Longer", 2));
+
+// Basic Algorithm Scripting: Finders Keepers
+//Create a function that looks through an array (first argument) and
+//returns the first element in the array that passes a truth test (second argument).
+// If no element passes the test, return undefined.
+// function findElement(arr, func) {
+//   let num = 0;
+// //loop through array array
+// for(let i = 0; i < arr.length; i++) {
+//   num = arr[i];
+//   //if func is satisfied
+//   if ( func(num)) {
+//       //return array Element
+//       return num;
+//   }
+// }
+// //if funct not satisfied at end of array
+// // return undefined
+//   return undefined;
+// }
+// console.log(findElement([1, 3, 5, 8, 9, 10], num => num % 2 === 0));
+
+// Basic Algorithm Scripting: Boo who
+//Check if a value is classified as a boolean primitive. Return true or false.
+// function booWho(bool) {
+//   if (typeof bool === "boolean") {
+//     return true;
+//   }
+//   return false;
+// }
+// console.log(booWho([].slice));
+
+// Basic Algorithm Scripting: Title Case a Sentence
+// Return the provided string with the first letter of each word capitalized.
+//Make sure the rest of the word is in lower case.
+function titleCase(str) {
+  var firstLetter = [];
+  //collect string text from user input and convert to all lower case
+  str = str.toLowerCase();
+  //Slice the sentence into words
+  var strWords = str.split(" ");
+   //iterate through the words
+  for (var i = 0; i < strWords.length; i++){
+    //Find the firt letter of each word
+    //Change the first letter to upper uppercase
+    //Uncomment the line below to use the array index method
+    //firstLetter.push(strWords[i][0].toUpperCase()+strWords[i].slice(1));
+        //Using the charAt method instead
+        firstLetter.push(strWords[i].charAt(0).toUpperCase()+strWords[i].slice(1));
+    //slice(1) takes care of the duplication of the first letter in both upper and lower case
+    }
+    //join back the array of words to form a string
+  return firstLetter.join(" ");
 }
-console.log(truncateString("Absolutely Longer", 2));
+console.log(titleCase("I'm a little tea pot"));
