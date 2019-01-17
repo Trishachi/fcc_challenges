@@ -196,23 +196,35 @@
 // Basic Algorithm Scripting: Title Case a Sentence
 // Return the provided string with the first letter of each word capitalized.
 //Make sure the rest of the word is in lower case.
-function titleCase(str) {
-  var firstLetter = [];
-  //collect string text from user input and convert to all lower case
-  str = str.toLowerCase();
-  //Slice the sentence into words
-  var strWords = str.split(" ");
-   //iterate through the words
-  for (var i = 0; i < strWords.length; i++){
-    //Find the firt letter of each word
-    //Change the first letter to upper uppercase
-    //Uncomment the line below to use the array index method
-    //firstLetter.push(strWords[i][0].toUpperCase()+strWords[i].slice(1));
-        //Using the charAt method instead
-        firstLetter.push(strWords[i].charAt(0).toUpperCase()+strWords[i].slice(1));
-    //slice(1) takes care of the duplication of the first letter in both upper and lower case
-    }
-    //join back the array of words to form a string
-  return firstLetter.join(" ");
+// function titleCase(str) {
+//   var firstLetter = [];
+//   //collect string text from user input and convert to all lower case
+//   str = str.toLowerCase();
+//   //Slice the sentence into words
+//   var strWords = str.split(" ");
+//    //iterate through the words
+//   for (var i = 0; i < strWords.length; i++){
+//     //Find the firt letter of each word
+//     //Change the first letter to upper uppercase
+//     //Uncomment the line below to use the array index method
+//     //firstLetter.push(strWords[i][0].toUpperCase()+strWords[i].slice(1));
+//         //Using the charAt method instead
+//         firstLetter.push(strWords[i].charAt(0).toUpperCase()+strWords[i].slice(1));
+//     //slice(1) takes care of the duplication of the first letter in both upper and lower case
+//     }
+//     //join back the array of words to form a string
+//   return firstLetter.join(" ");
+// }
+// console.log(titleCase("I'm a little tea pot"));
+
+// Basic Algorithm Scripting: Slice and Splice
+//Use the array methods slice and splice to copy each element of the first array into the second array, in order.
+//Begin inserting elements at index n of the second array.
+//Return the resulting array. The input arrays should remain the same after the function runs.
+function frankenSplice(arr1, arr2, n) {
+  //create a new array to ensure original array is not modified
+  let newArr = arr2.slice(0);
+  newArr.splice(n, 0, ...arr1);
+  return newArr;
 }
-console.log(titleCase("I'm a little tea pot"));
+console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
