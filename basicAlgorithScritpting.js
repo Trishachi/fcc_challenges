@@ -221,10 +221,32 @@
 //Use the array methods slice and splice to copy each element of the first array into the second array, in order.
 //Begin inserting elements at index n of the second array.
 //Return the resulting array. The input arrays should remain the same after the function runs.
-function frankenSplice(arr1, arr2, n) {
-  //create a new array to ensure original array is not modified
-  let newArr = arr2.slice(0);
-  newArr.splice(n, 0, ...arr1);
-  return newArr;
+// function frankenSplice(arr1, arr2, n) {
+//   //create a new array to ensure original array is not modified
+//   let newArr = arr2.slice(0);
+//   newArr.splice(n, 0, ...arr1);
+//   return newArr;
+// }
+// console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
+
+// Basic Algorithm Scripting: Falsy Bouncer
+//Remove all falsy values from an array.
+//Falsy values in JavaScript are false, null, 0, "", undefined, and NaN
+// function bouncer(arr) {
+//   // map through the array
+//     //if array index is Falsy
+//     //delete from Arrays
+//     return arr.filter(Boolean);
+//
+// }
+// console.log(bouncer([7, "ate", "", false, 9]));
+
+// Basic Algorithm Scripting: Where do I Belong
+// Return the lowest index at which a value (second argument) should be inserted into an array
+ // (first argument) once it has been sorted. The returned value should be a number.
+ function getIndexToIns(arr, num) {
+  // sort the array
+  arr.sort();
+  return arr;
 }
-console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
+console.log(getIndexToIns([40, 60], 50));
