@@ -11,6 +11,14 @@
 //between two specified indices, and returns the new sub string.
 //string.substring(start, end)
 
+//Numeric sort
+//By default, the sort() function sorts values as strings.
+//This works well for strings ("Apple" comes before "Banana").
+//However, if numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1".
+//Because of this, the sort() method will produce incorrect result when sorting numbers.
+//You can fix this by providing a compare function:
+
+
 
 //Codes
 
@@ -244,9 +252,55 @@
 // Basic Algorithm Scripting: Where do I Belong
 // Return the lowest index at which a value (second argument) should be inserted into an array
  // (first argument) once it has been sorted. The returned value should be a number.
- function getIndexToIns(arr, num) {
-  // sort the array
-  arr.sort();
-  return arr;
+//  function getIndexToIns(arr, num) {
+//   // sort the array
+//   arr.sort(function(a, b){return a - b});
+//   //Loop through the array
+//   for (let i = 0; i < arr.length; i++){
+//     //check if each array index is greater than "num"
+//     if (arr[i] >= num){
+//       //return the first index that is greater than num
+//       return i;
+//     }
+//   }
+//   return arr.length;
+// }
+// console.log(getIndexToIns([2, 5, 10], 15));
+
+// Basic Algorithm Scripting: Mutations
+// Return true if the string in the first element of the array contains
+//all of the letters of the string in the second element of the array.
+// function mutation(arr) {
+//   // convert strings to lower cases for easy manipulation
+//   let newStr1 = arr[0].toLowerCase();
+//   let newStr2 = arr[1].toLowerCase();
+//    //convert second array to Characters
+//    //Test if strTest is contained in first array
+//    for (let i = 0; i < newStr2.length; i++){
+//      if(newStr1.indexOf(arr[1][i].toLowerCase()) === -1){
+//        return false;
+//      }
+//    }
+//   return true;
+// }
+// console.log(mutation(["hello", "hey"]));
+
+// Basic Algorithm Scripting: Chunky Monkey
+// Write a function that splits an array (first argument) into
+//groups the length of size (second argument) and returns them as a two-dimensional array.
+function chunkArrayInGroups(arr, size) {
+  //create variable to hold new array
+  // slice up the original array.
+  //loop through the original arrays
+  //create new arrays (innerArr) the length of "size"
+  //push into the new array variable
+   let newArr = [];
+
+   for (let index = 0; index < arr.length; index += size){
+     let innerArr = arr.slice(index, index + size);
+     newArr.push(innerArr);
+   }
+
+  return newArr;
 }
-console.log(getIndexToIns([40, 60], 50));
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2));
