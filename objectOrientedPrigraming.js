@@ -21,6 +21,12 @@
 // The prototype is an object that is shared among ALL instances of an object.
 
 
+// The constructor property is a reference to the constructor function that created the instance.
+//The constructor property  to check a property to find out what kind of object it is.
+// Since the constructor property can be overwritten it’s generally better to use the instanceof method to check the type of an object.
+
+// whenever a prototype is manually set to a new object, remember to define the constructor property
+
 //Resources
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof
 
@@ -202,3 +208,53 @@
 //   Car.apply(this, arguments);
 //   this.numWheels = 2;
 // }
+
+// Object Oriented Programming: Understand the Constructor Property
+// Write a joinDogFraternity function that takes a candidate parameter and,
+// using the constructor property, return true if the candidate is a Dog, otherwise return false.
+// function Dog(name) {
+//   this.name = name;
+// }
+//
+// // Add your code below this line
+// function joinDogFraternity(candidate) {
+//     if (candidate.constructor === Dog) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// Object Oriented Programming: Change the Prototype to a New Object
+// Add the property numLegs and the two methods eat() and describe() to the prototype of Dog by setting the prototype to a new object.
+// function Dog(name) {
+//   this.name = name;
+// }
+//
+// Dog.prototype = {
+//   // Add your code below this line
+//   numLegs: 4,
+//   eat: function(){
+//     console.log("bone");
+//   },
+//   describe: function(){
+//     console.log("I am " + this.name);
+//   }
+// };
+
+// Object Oriented Programming: Remember to Set the Constructor Property when Changing the Prototype
+// Define the constructor property on the Dog prototype.
+// function Dog(name) {
+//   this.name = name;
+// }
+// // Modify the code below this line
+// Dog.prototype = {
+//   constructor: Dog,
+//   numLegs: 4,
+//   eat: function() {
+//     console.log("bones");
+//   },
+//   describe: function() {
+//     console.log("My name is " + this.name);
+//   }
+// };
