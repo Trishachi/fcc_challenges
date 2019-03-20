@@ -258,3 +258,141 @@
 //     console.log("My name is " + this.name);
 //   }
 // };
+
+//Object Oriented Programming: Understand Where an Object’s Prototype Comes From
+//Use isPrototypeOf to check the prototype of beagle.
+// function Dog(name) {
+//   this.name = name;
+// }
+//
+// let beagle = new Dog("Snoopy");
+// // Add your code below this line
+// console.log(Dog.prototype.isPrototypeOf(beagle));
+
+//Object Oriented Programming: Understand the Prototype Chain
+//Modify the code to show the correct prototype chain.
+// function Dog(name) {
+//   this.name = name;
+// }
+//
+// let beagle = new Dog("Snoopy");
+// console.log(Dog.prototype.isPrototypeOf(beagle));  // => true
+// // Fix the code below so that it evaluates to true
+// console.log(Object.prototype.isPrototypeOf(Dog.prototype));
+
+//Object Oriented Programming: Use Inheritance So You Don't Repeat Yourself
+//DRY - Don't Repeat Yourself
+//The eat method is repeated in both Cat and Bear. Edit the code in the
+//spirit of DRY by moving the eat method to the Animal supertype.
+
+// function Cat(name) {
+//   this.name = name;
+// }
+//
+// Cat.prototype = {
+//   constructor: Cat
+// };
+//
+// function Bear(name) {
+//   this.name = name;
+// }
+//
+// Bear.prototype = {
+//   constructor: Bear
+// };
+//
+// function Animal() { }
+//
+// Animal.prototype = {
+//   constructor: Animal,
+//   eat: function() {
+//     console.log("nom nom nom");
+//   }
+// };
+
+//Object Oriented Programming: Inherit Behaviors from a Supertype
+//Use Object.create to make two instances of Animal named duck and beagle
+
+// function Animal() { }
+//
+// Animal.prototype = {
+//   constructor: Animal,
+//   eat: function() {
+//     console.log("nom nom nom");
+//   }
+// };
+// // Add your code below this line
+// let duck = Object.create(Animal.prototype); // Change this line
+// let beagle = Object.create(Animal.prototype); // Change this line
+//
+// console.log(duck.eat()); // Should print "nom nom nom"
+// console.log(beagle.eat()); // Should print "nom nom nom"
+
+//Object Oriented Programming: Set the Child's Prototype to an Instance of the Parent
+//Modify the code so that instances of Dog inherit from Animal.
+// function Animal() { }
+//
+// Animal.prototype = {
+//   constructor: Animal,
+//   eat: function() {
+//     console.log("nom nom nom");
+//   }
+// };
+//
+// function Dog() { }
+// // Add your code below this line
+// Dog.prototype = Object.create(Animal.prototype);
+//
+// let beagle = new Dog();
+// console.log(beagle.eat());  // Should print "nom nom nom"
+
+// Object Oriented Programming: Reset an Inherited Constructor Property
+//Fix the code so duck.constructor and beagle.constructor return their respective constructors.
+// function Animal() { }
+// function Bird() { }
+// function Dog() { }
+//
+// Bird.prototype = Object.create(Animal.prototype);
+// Dog.prototype = Object.create(Animal.prototype);
+//
+// // Add your code below this line
+// Bird.prototype.constructor = Bird;
+// Dog.prototype.constructor = Dog;
+// let duck = new Bird();
+// let beagle = new Dog();
+
+//Object Oriented Programming: Add Methods After Inheritance
+//Add all necessary code so the Dog object inherits from Animal and
+//the Dog's prototype constructor is set to Dog. Then add a bark()
+//method to the Dog object so that beagle can both eat() and bark().
+//The bark() method should print "Woof!" to the console.
+
+// function Animal() { }
+// Animal.prototype.eat = function() { console.log("nom nom nom"); };
+//
+// function Dog() { }
+// // Add your code below this line
+// Dog.prototype = Object.create(Animal.prototype);
+// Dog.prototype.constructor = Dog;
+// Dog.prototype.bark = function() { console.log("Woof"); };
+// // Add your code above this line
+//
+// let beagle = new Dog();
+// beagle.eat(); // Should print "nom nom nom"
+// beagle.bark(); // Should print "Woof!"
+
+// Object Oriented Programming: Override Inherited Methods
+//Override the fly() method for Penguin so that it returns "Alas, this is a flightless bird."
+// function Bird() { }
+// Bird.prototype.fly = function() { return "I am flying!"; };
+//
+// function Penguin() { }
+// Penguin.prototype = Object.create(Bird.prototype);
+// Penguin.prototype.constructor = Penguin;
+//
+// // Add your code below this line
+// Penguin.prototype.fly = function() { return "Alas, this is a flightless bird."};
+// // Add your code above this line
+//
+// let penguin = new Penguin();
+// console.log(penguin.fly());
