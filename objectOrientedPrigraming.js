@@ -26,6 +26,10 @@
 // Since the constructor property can be overwritten it’s generally better to use the instanceof method to check the type of an object.
 
 // whenever a prototype is manually set to a new object, remember to define the constructor property
+//For unrelated objects, it's better to use mixins. A mixin allows other objects to use a collection of functions.
+
+//The simplest way to make properties private is by creating a variable within the constructor function. This changes the scope of that variable to be within the constructor
+//function versus available globally. This way, the property can only be accessed and changed by methods also within the constructor function.
 
 //Resources
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof
@@ -396,3 +400,70 @@
 //
 // let penguin = new Penguin();
 // console.log(penguin.fly());
+
+//Object Oriented Programming: Use a Mixin to Add Common Behavior Between Unrelated Objects
+//Create a mixin named glideMixin that defines a method named glide. Then use
+//the glideMixin to give both bird and boat the ability to glide.
+// let bird = {
+//   name: "Donald",
+//   numLegs: 2
+// };
+//
+// let boat = {
+//   name: "Warrior",
+//   type: "race-boat"
+// };
+// // Add your code below this line
+// let glideMixin = function(obj) {
+//   obj.glide = function() {
+//     console.log("Gliding, gliding!");
+//   }
+// };
+// glideMixin(bird);
+// glideMixin(boat);
+// bird.glide();
+// boat.glide();
+
+//Object Oriented Programming: Use Closure to Protect
+// Properties Within an Object from Being Modified Externally
+//In JavaScript, a function always has access to the context in which it was created.
+//This is called closure.
+
+//Change how weight is declared in the Bird function so it is a private variable.
+//Then, create a method getWeight that returns the value of weight.
+// function Bird() {
+//   let weight = 15;
+//
+//   this.getWeight = function() {
+//     return weight;
+//   };
+// }
+// let canary = new Bird();
+// console.log(canary.getWeight());
+
+//Object Oriented Programming: Understand the Immediately Invoked Function Expression (IIFE)
+//The two parentheses () at the end of the function expression cause it to be immediately executed or invoked.
+//Rewrite the function makeNest and remove its call so instead it's an anonymous immediately invoked function expression (IIFE).
+
+// (function () {
+//   console.log("A cozy nest is ready");
+// })();
+
+
+//Object Oriented Programming: Use an IIFE to Create a Module
+//Create a module named funModule to wrap the two mixins isCuteMixin and singMixin. funModule should return an object.
+
+let funModule = (function () {
+  return {
+    isCuteMixin: function(obj) {
+      obj.isCute = function() {
+        return true;
+      };
+    },
+    singMixin: function(obj) {
+      obj.sing = function() {
+        console.log("Singing to an awesome tune");
+      };
+    }
+  }
+})();
