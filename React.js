@@ -22,6 +22,11 @@
 //The other way to define a React component is with the ES6 class syntax.
  // A typical React component is an ES6 class which extends React.Component. It has a render method that returns HTML (from JSX) or null.
 
+//Default props
+//unless you specify otherwise. React assigns default props if props are undefined, but if you pass null as the value for a prop, it will remain null.
+
+
+
 //Codes
 // React -1: Create a Simple JSX Element
 //Instructions: The current code uses JSX to assign a div element to the constant JSX.
@@ -332,4 +337,133 @@
 //       </div>
 //     );
 //   }
+// };
+
+// React - 16: Use Default Props
+//The code editor shows a ShoppingCart component.
+//Define default props on this component which specify a prop items with a value of 0.
+// const ShoppingCart = (props) => {
+//   return (
+//     <div>
+//       <h1>Shopping Cart Component</h1>
+//     </div>
+//   )
+// };
+// // change code below this line
+// ShoppingCart.defaultProps = { items: 0 };
+
+// React - 17: Override Default Props
+//The ShoppingCart component now renders a child component Items. This Items component has a default prop quantity set to the integer 0.
+//Override the default prop by passing in a value of 10 for quantity.
+// const Items = (props) => {
+//   return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+// }
+//
+// Items.defaultProps = {
+//   quantity: 0
+// }
+//
+// class ShoppingCart extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//     { /* change code below this line */ }
+//     return <Items quantity={10} />
+//     { /* change code above this line */ }
+//   }
+// };
+
+// React - 18: Use PropTypes to Define the Props You Expect
+// Define propTypes for the Items component to require quantity as a prop and verify that it is of type number.
+// const Items = (props) => {
+//   return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+// };
+//
+// // change code below this line
+// Items.propTypes = {
+//   quantity: PropTypes.number.isRequired
+// };
+// // change code above this line
+//
+// Items.defaultProps = {
+//   quantity: 0
+// };
+//
+// class ShoppingCart extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//     return <Items />
+//   }
+// };
+
+// React - 19: Access Props Using this.props
+// Render an instance of the ReturnTempPassword component in
+// the parent component ResetPassword. Here, give ReturnTempPassword a prop of tempPassword and assign it a value of a string that is at least 8 characters long.
+// Within the child, ReturnTempPassword, access the tempPassword prop within the strong tags to make sure the user sees the temporary password.
+// class ReturnTempPassword extends React.Component {
+//   constructor(props) {
+//     super(props);
+//
+//   }
+//   render() {
+//     return (
+//         <div>
+//             { /* change code below this line */ }
+//             <p>Your temporary password is: <strong>{this.props.tempPassword}</strong></p>
+//             { /* change code above this line */ }
+//         </div>
+//     );
+//   }
+// };
+//
+// class ResetPassword extends React.Component {
+//   constructor(props) {
+//     super(props);
+//
+//   }
+//   render() {
+//     return (
+//         <div>
+//           <h2>Reset Password</h2>
+//           <h3>We've generated a new temporary password for you.</h3>
+//           <h3>Please reset this password from your account settings ASAP.</h3>
+//           { /* change code below this line */ }
+//             <ReturnTempPassword tempPassword="Chisombili" />
+//           { /* change code above this line */ }
+//         </div>
+//     );
+//   }
+// };
+// React - 20: Review Using Props with Stateless Functional Components
+//The code editor has a CampSite component that renders a Camper component as a child.
+//Define the Camper component and assign it default props of { name: 'CamperBot' }.
+//Inside the Camper component, render any code that you want, but make sure to have one p
+//element that includes only the name value that is passed in as a prop.
+//Finally, define propTypes on the Camper component to require name to be provided as a prop and verify that it is of type string.
+// class CampSite extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <Camper/>
+//       </div>
+//     );
+//   }
+// };
+// // change code below this line
+// const Camper = (props) => {
+//   return <p>{props.name}</p>
+// };
+//
+// Camper.defaultProps = {
+//   name: 'CamperBot'
+// };
+//
+//  Camper.propTypes = {
+//   name: PropTypes.string.isRequired
 // };
