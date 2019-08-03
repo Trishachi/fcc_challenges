@@ -13,6 +13,10 @@
 // it mutates the array in place. One way to avoid this is to first concatenate an empty array to the one being sorted
 // (remember that concat returns a new array), then run the sort method.
 
+//The arity of a function is the number of arguments it requires. Currying a function means to convert a function of N arity into N functions of arity 1.
+//In other words, it restructures a function so it takes one argument, then returns another function that takes the next argument, and so on.
+
+
 //Codes
 
 //Functional Programming: Learn About Functional Programming
@@ -662,3 +666,61 @@
 //   // Add your code above this line
 // }
 // console.log(splitify("Hello World,I-am code"));
+
+// Functional Programming: Combine an Array into a String Using the join Method
+// Use the join method (among others) inside the sentensify function to make a sentence from the words in the string str.
+// function sentensify(str) {
+//   // Add your code below this line
+//   return str.split(/\W/).join(" ");
+//   // Add your code above this line
+// }
+// console.log(sentensify("May-the-force-be-with-you"));
+
+
+// Functional Programming: Apply Functional Programming to Convert Strings to URL Slugs
+//Fill in the urlSlug function so it converts a string title and returns the hyphenated version for the URL.
+//You can use any of the methods covered in this section, and don't use replace.
+// the global variable
+// var globalTitle = " Winter Is  Coming";
+// // Add your code below this line
+// function urlSlug(title) {
+//   var result = title.toLowerCase().trim().split(/\s+/).join("-");
+//   return result;
+// }
+// // Add your code above this line
+// var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
+// console.log(winterComing);
+
+// Functional Programming: Use the every Method to Check that Every Element in an Array Meets a Criteria
+// Use the every method inside the checkPositive function to check if every element in arr is positive.
+// The function should return a Boolean value.
+// function checkPositive(arr) {
+//   // Add your code below this line
+//   return arr.every(num => num > 0);
+//   // Add your code above this line
+// }
+// console.log(checkPositive([1, 2, 3, 4, 5]));
+
+
+// Functional Programming: Use the some Method to Check that Any Elements in an Array Meet a Criteria
+// Use the some method inside the checkPositive function to check if any element in arr is positive.
+// The function should return a Boolean value.
+// function checkPositive(arr) {
+//   // Add your code below this line
+//   return arr.some(num => num > 0);
+//   // Add your code above this line
+// }
+// console.log(checkPositive([-1, -2, -3, -4, -5]));
+
+// Functional Programming: Introduction to Currying and Partial Application
+//Fill in the body of the add function so it uses currying to add parameters x, y, and z.
+function add(x) {
+  // Add your code below this line
+    return function(y){
+      return function(z){
+        return x + y + z;
+      }
+    }
+  // Add your code above this line
+}
+console.log(add(11)(22)(33));
