@@ -467,3 +467,46 @@
 //  Camper.propTypes = {
 //   name: PropTypes.string.isRequired
 // };
+
+// React - 21: Create a Stateful Component
+// There is a component in the code editor that is trying to render a
+// name property from its state. However, there is no state defined.
+// Initialize the component with state in the constructor and assign your name to a property of name.
+// class StatefulComponent extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     // initialize state here
+//     this.state = {
+//     name: 'John Smith'
+// }
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h1>{this.state.name}</h1>
+//       </div>
+//     );
+//   }
+// };
+
+// React - 22: Render State in the User Interface
+// In the code editor, MyComponent is already stateful.
+// Define an h1 tag in the component's render method which
+//renders the value of name from the component's state.
+// class MyComponent extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       name: 'freeCodeCamp'
+//     }
+//   }
+//   render() {
+//     return (
+//       <div>
+//         { /* change code below this line */ }
+//         <h1>{this.state.name}</h1>
+//         { /* change code above this line */ }
+//       </div>
+//     );
+//   }
+// };
