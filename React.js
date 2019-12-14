@@ -573,29 +573,241 @@
 // The code editor has a component with a state that keeps track of an item count. It also has a method which allows you to increment this item count. However, the method doesn't work because it's using the this keyword that is undefined. Fix it by explicitly binding this to the addItem() method in the component's constructor.
 //
 // Next, add a click handler to the button element in the render method. It should trigger the addItem() method when the button receives a click event. Remember that the method you pass to the onClick handler needs curly braces because it should be interpreted directly as JavaScript.
-class MyComponent extends React.Component {
+// class MyComponent extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       itemCount: 0
+//     };
+//     // change code below this line
+//     this.addItem = this.addItem.bind(this);
+//     // change code above this line
+//   }
+//   addItem() {
+//     this.setState({
+//       itemCount: this.state.itemCount + 1
+//     });
+//   }
+//   render() {
+//     return (
+//       <div>
+//         { /* change code below this line */ }
+//         <button onClick={this.addItem }>Click Me</button>
+//         { /* change code above this line */ }
+//         <h1>Current Item Count: {this.state.itemCount}</h1>
+//       </div>
+//     );
+//   }
+// };
+
+// React - 26: Use State to Toggle an Element
+// MyComponent has a visibility property which is initialized to false.
+// The render method returns one view if the value of visibility is true,
+// and a different view if it is false.
+// Currently, there is no way of updating the visibility property in the component's state.
+// The value should toggle back and forth between true and false.
+// There is a click handler on the button which triggers a class method called toggleVisibility().
+// Pass a function to setState to define this method so that the state of visibility toggles
+// to the opposite value when the method is called. If visibility is false, the method sets it to true,
+// and vice versa.
+// Finally, click the button to see the conditional rendering of the component based on its state.
+// Hint: Don't forget to bind the this keyword to the method in the constructor!
+
+// class MyComponent extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       visibility: false
+//     };
+//
+// this.toggleVisibility = this.toggleVisibility.bind(this);
+// }
+// toggleVisibility(){
+//
+//     this.setState(state => ({
+//       visibility: !state.visibility
+//     }));
+//   }
+// render() {
+//     if (this.state.visibility) {
+//       return (
+//         <div>
+//           <button onClick={this.toggleVisibility}>Click Me</button>
+//           <h1>Now you see me!</h1>
+//         </div>
+//       );
+//     } else {
+//       return (
+//         <div>
+//           <button onClick={this.toggleVisibility}>Click Me</button>
+//         </div>
+//       );
+//     }
+//   }
+// };
+
+// React - 27: Write a Simple Counter
+// The Counter component keeps track of a count value in state.
+// There are two buttons which call methods increment() and decrement().
+// Write these methods so the counter value is incremented or decremented
+// by 1 when the appropriate button is clicked. Also, create a reset() method
+// so when the reset button is clicked, the count is set to 0.
+// Note: Make sure you don't modify the classNames of the buttons.
+// Also, remember to add the necessary bindings for the newly-created methods in the constructor.
+
+// class Counter extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       count: 0
+//     };
+//     // change code below this line
+//  this.increment = this.increment.bind(this);
+//  this.decrement = this.decrement.bind(this);
+//  this.reset = this.reset.bind(this);
+//     // change code above this line
+//   }
+//   // change code below this line
+// increment(){
+//   let counter = this.state.count;
+//   counter = counter + 1;
+//   this.setState({
+//     count: counter
+//   });
+// }
+//
+// decrement(){
+//   let counter = this.state.count;
+//   counter = counter - 1;
+//   this.setState({
+//     count: counter
+//   });
+// }
+//
+// reset(){
+//   this.setState({
+//     count: 0
+//   });
+// }
+//   // change code above this line
+//   render() {
+//     return (
+//       <div>
+//         <button className='inc' onClick={this.increment}>Increment!</button>
+//         <button className='dec' onClick={this.decrement}>Decrement!</button>
+//         <button className='reset' onClick={this.reset}>Reset</button>
+//         <h1>Current Count: {this.state.count}</h1>
+//       </div>
+//     );
+//   }
+// };
+
+// React - 28: Create a Controlled Input
+// class ControlledInput extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       input: ''
+//     };
+//     // change code below this line
+// this.handleChange = this.handleChange.bind(this);
+//     // change code above this line
+//   }
+//   // change code below this line
+// handleChange(event){
+//   let nam = event.target.name;
+//   let val = event.target.value;
+//   this.setState({[nam]: val});
+// }
+//   // change code above this line
+//   render() {
+//     return (
+//       <div>
+//         { /* change code below this line */}
+//         <input
+//         value={this.state.input}
+//         onChange={this.handleChange}
+//         name="input"/>
+//         { /* change code above this line */}
+//         <h4>Controlled Input:</h4>
+//         <p>{this.state.input}</p>
+//       </div>
+//     );
+//   }
+// };
+
+// React - 29: Create a Controlled Form
+// class MyForm extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       input: '',
+//       submit: ''
+//     };
+//     this.handleChange = this.handleChange.bind(this);
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//   }
+//   handleChange(event) {
+//     this.setState({
+//       input: event.target.value
+//     });
+//   }
+//   handleSubmit(event) {
+//     // change code below this line
+//  event.preventDefault(event);
+//  this.setState({ submit: this.state.input});
+//     // change code above this line
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <form onSubmit={this.handleSubmit}>
+//           { /* change code below this line */ }
+//           <input value={this.state.input} onChange={this.handleChange}/>
+//           { /* change code above this line */ }
+//           <button type='submit'>Submit!</button>
+//         </form>
+//         { /* change code below this line */ }
+//         <h1>{this.state.submit}
+//         </h1>
+//         { /* change code above this line */ }
+//       </div>
+//     );
+//   }
+// };
+
+// React - 30: Pass State as Props to Child Components
+// The MyApp component is stateful and renders a Navbar component
+// as a child. Pass the name property in its state down to the child
+// component, then show the name in the h1 tag that's part of the
+// Navbar render method.
+
+class MyApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      itemCount: 0
-    };
-    // change code below this line
-    this.addItem = this.addItem.bind(this);
-    // change code above this line
-  }
-  addItem() {
-    this.setState({
-      itemCount: this.state.itemCount + 1
-    });
+      name: 'CamperBot'
+    }
   }
   render() {
     return (
-      <div>
-        { /* change code below this line */ }
-        <button onClick={this.addItem }>Click Me</button>
-        { /* change code above this line */ }
-        <h1>Current Item Count: {this.state.itemCount}</h1>
-      </div>
+       <div>
+         <Navbar userName={this.state.name} />
+       </div>
+    );
+  }
+};
+
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    let userName;
+    return (
+    <div>
+      <h1>Hello, my name is: {this.props.userName} </h1>
+    </div>
     );
   }
 };
