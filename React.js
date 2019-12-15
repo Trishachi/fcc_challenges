@@ -782,32 +782,134 @@
 // component, then show the name in the h1 tag that's part of the
 // Navbar render method.
 
-class MyApp extends React.Component {
+// class MyApp extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       name: 'CamperBot'
+//     }
+//   }
+//   render() {
+//     return (
+//        <div>
+//          <Navbar userName={this.state.name} />
+//        </div>
+//     );
+//   }
+// };
+//
+// class Navbar extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//     let userName;
+//     return (
+//     <div>
+//       <h1>Hello, my name is: {this.props.userName} </h1>
+//     </div>
+//     );
+//   }
+// };
+
+// React -31: Pass a Callback as Props
+// class MyApp extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       inputValue: ''
+//     }
+//     this.handleChange = this.handleChange.bind(this);
+//   }
+//   handleChange(event) {
+//     this.setState({
+//       inputValue: event.target.value
+//     });
+//   }
+//   render() {
+//     return (
+//        <div>
+//         { /* change code below this line */ }
+//         <GetInput
+//               input={this.props.inputValue}
+//               handleChange={this.handleChange} />
+//         <RenderInput input={this.state.inputValue} />
+//         { /* change code above this line */ }
+//        </div>
+//     );
+//   }
+// };
+//
+// class GetInput extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h3>Get Input:</h3>
+//         <input
+//           value={this.props.input}
+//           onChange={this.props.handleChange}/>
+//       </div>
+//     );
+//   }
+// };
+//
+// class RenderInput extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h3>Input Render:</h3>
+//         <p>{this.props.input}</p>
+//       </div>
+//     );
+//   }
+// };
+
+// React - 32: Use the Lifecycle Method componentWillMount
+// The componentWillMount() method is called before the
+// render() method when a component is being mounted to the DOM.
+// Log something to the console within componentWillMount() -
+// you may want to have your browser console open to see the output.
+
+// class MyComponent extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   componentWillMount() {
+//     // change code below this line
+//     console.log("Component Has Mounted");
+//     // change code above this line
+//   }
+//   render() {
+//     return <div />
+//   }
+// };
+
+// React - 33: Use the Lifecycle Method componentDidMount
+class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'CamperBot'
-    }
+      activeUsers: null
+    };
+  }
+  componentDidMount() {
+    setTimeout( () => {
+      this.setState({
+        activeUsers: 1273
+      });
+    }, 2500);
   }
   render() {
     return (
-       <div>
-         <Navbar userName={this.state.name} />
-       </div>
-    );
-  }
-};
-
-class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    let userName;
-    return (
-    <div>
-      <h1>Hello, my name is: {this.props.userName} </h1>
-    </div>
+      <div>
+        <h1>Active Users: {this.state.activeUsers}</h1>
+      </div>
     );
   }
 };
