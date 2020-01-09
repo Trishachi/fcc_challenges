@@ -25,7 +25,11 @@
 //Default props
 //unless you specify otherwise. React assigns default props if props are undefined, but if you pass null as the value for a prop, it will remain null.
 
-
+//React Inline Styles
+//JSX elements use the style attribute, but because of the way JSX is transpiled, you can't set the value to a string. Instead, you set it equal to a JavaScript object
+// All property value length units (like height, width, and fontSize) are assumed to be in px unless otherwise specified.
+// If you want to use em, for example, you wrap the value and the units in quotes, like {fontSize: "4em"}.
+// Other than the length values that default to px, all other property values should be wrapped in quotes.
 
 //Codes
 // React -1: Create a Simple JSX Element
@@ -891,25 +895,144 @@
 // };
 
 // React - 33: Use the Lifecycle Method componentDidMount
-class MyComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeUsers: null
-    };
-  }
-  componentDidMount() {
-    setTimeout( () => {
-      this.setState({
-        activeUsers: 1273
-      });
-    }, 2500);
-  }
-  render() {
-    return (
-      <div>
-        <h1>Active Users: {this.state.activeUsers}</h1>
-      </div>
-    );
-  }
-};
+// class MyComponent extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       activeUsers: null
+//     };
+//   }
+//   componentDidMount() {
+//     setTimeout( () => {
+//       this.setState({
+//         activeUsers: 1273
+//       });
+//     }, 2500);
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h1>Active Users: {this.state.activeUsers}</h1>
+//       </div>
+//     );
+//   }
+// };
+
+// React - 34: Add Event Listeners
+// class MyComponent extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       message: ''
+//     };
+//     this.handleEnter = this.handleEnter.bind(this);
+//     this.handleKeyPress = this.handleKeyPress.bind(this);
+//   }
+//   // change code below this line
+//   componentDidMount() {
+//     document.addEventListener("keydown", this.handleKeyPress);
+//   }
+//   componentWillUnmount() {
+//     document.removeEventListener("keydown", this.handleKeyPress);
+//   }
+//   // change code above this line
+//   handleEnter() {
+//     this.setState({
+//       message: this.state.message + 'You pressed the enter key! '
+//     });
+//   }
+//   handleKeyPress(event) {
+//     if (event.keyCode === 13) {
+//       this.handleEnter();
+//     }
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h1>{this.state.message}</h1>
+//       </div>
+//     );
+//   }
+// };
+
+// React - 35: Optimize Re-Renders with shouldComponentUpdate
+// The shouldComponentUpdate() method is added in a component called OnlyEvens.
+// Currently, this method returns true so OnlyEvens re-renders every time it
+// receives new props. Modify the method so OnlyEvens updates only if the
+// value of its new props is even. Click the Add button and watch the order of
+// events in your browser's console as the lifecycle hooks are triggered.
+
+// class OnlyEvens extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   shouldComponentUpdate(nextProps, nextState) {
+//     console.log('Should I update?');
+//      // change code below this line
+//      if(nextProps.value % 2 === 0) return true;
+//      // change code above this line
+//   }
+//   componentDidUpdate() {
+//     console.log('Component re-rendered.');
+//   }
+//   render() {
+//     return <h1>{this.props.value}</h1>
+//   }
+// };
+// class Controller extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       value: 0
+//     };
+//     this.addValue = this.addValue.bind(this);
+//   }
+//   addValue() {
+//     this.setState({
+//       value: this.state.value + 1
+//     });
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <button onClick={this.addValue}>Add</button>
+//         <OnlyEvens value={this.state.value}/>
+//       </div>
+//     );
+//   }
+// };
+
+// React -36: Introducing Inline Styles
+// Add a style attribute to the div in the
+// code editor to give the text a color of red and font size of 72px.
+// Note that you can optionally set the font size to be a number,
+// omitting the units "px", or write it as "72px".
+
+// class Colorful extends React.Component {
+//   render() {
+//     return (
+//       <div style={{color: "red", fontSize: 72}}>Big Red</div>
+//     );
+//   }
+// };
+
+// React - 37: Add Inline Styles in React
+// Uncomment the styles constant and declare an object with three style properties and their values.
+// Give the div a color of "purple", a font-size of 40, and a border of "2px solid purple".
+// Then set the style attribute equal to the styles constant.
+//
+// const styles = {
+//   color: "purple",
+//   fontSize: 40,
+//   border: "2px solid purple"
+// }
+// // change code above this line
+// class Colorful extends React.Component {
+//   render() {
+//     // change code below this line
+//     return (
+//       <div style={styles}>Style Me!</div>
+//     );
+//     // change code above this line
+//   }
+// };
