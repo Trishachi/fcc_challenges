@@ -4,13 +4,14 @@
 //D3 is a JavaScript library to create dynamic and interactive data visualizations in the browser.
 //It's built to work with common web standards, namely HTML, CSS, and Scalable Vector Graphics (SVG)
 
-//D3 Methods - select(), append(), text(), selectAll(), enter(), data(), style()
+//D3 Methods - select(), append(), text(), selectAll(), enter(), data(), style(), attr()
 //The select() method selects one element from the document
 //The append() method takes an argument for the element you want to add to the document.
 //It appends an HTML node to a selected item, and returns a handle to that nod
 // The text() method either sets the text of the selected node, or gets the current text. can take a string or a callback function as an arguement
 //The data() method is used on a selection of DOM elements to attach the data to those elements.
 //The enter() method creates a new element in the document for each piece of data in the data set.
+//attr() method to add any HTML attribute to an element, including a class name
 
 //CODES
 //Data Visualization with D3 -1: Add Document Elements with D3
@@ -82,3 +83,67 @@
 //       .style("font-family", "verdana");
 //   </script>
 // </body>
+
+// Data Visualization with D3 - 6: Change Styles Based on Data
+//Add the style() method to the code in the editor to set the color
+//of the h2 elements conditionally. Write the callback function so if the
+//data value is less than 20, it returns "red", otherwise it returns "green".
+// <body>
+//   <script>
+//     const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+//
+//     d3.select("body").selectAll("h2")
+//       .data(dataset)
+//       .enter()
+//       .append("h2")
+//       .text((d) => (d + " USD"))
+//       .style("color",  (d) => {
+//           if(d < 20) {return "red"} else {return "green"}
+//           });
+//       </script>
+// </body>
+
+// Data Visualization with D3 - 7: Add Classes with D3
+//Add the attr() method to the code in the editor and put a class of bar on the div elements.
+// <style>
+//   .bar {
+//     width: 25px;
+//     height: 100px;
+//     display: inline-block;
+//     background-color: blue;
+//   }
+// </style>
+// <body>
+//   <script>
+//     const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+//
+//     d3.select("body").selectAll("div")
+//       .data(dataset)
+//       .enter()
+//       .append("div")
+//       .attr("class", "bar")
+//   </script>
+// </body>
+
+// Data Visualization with D3 - 8: Update the Height of an Element Dynamically
+//Add the style() method to the code in the editor to set the height property
+//for each element. Use a callback function to return the value
+//of the data point with the string "px" added to it.
+<style>
+  .bar {
+    width: 25px;
+    height: 100px;
+    display: inline-block;
+    background-color: blue;
+  }
+</style>
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+    d3.select("body").selectAll("div")
+      .data(dataset)
+      .enter()
+      .append("div")
+      .attr("class", "bar")
+      .style("height", (d) => d + "px")
+</body>
