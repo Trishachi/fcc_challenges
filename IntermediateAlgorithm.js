@@ -32,16 +32,29 @@
 
 
 //Intermediate Algorithm Scripting: Seek and Destroy
-function destroyer(arr) {
-  var args = Array.from(arguments)
-  var destroyed = []
-  args.splice(0,1)
-  for(var item of arr){
-    if(args.indexOf(item) === -1){
-      destroyed.push(item)
-    }
-  }
-  return destroyed;
-}
+// function destroyer(arr) {
+//   var args = Array.from(arguments)
+//   var destroyed = []
+//   args.splice(0,1)
+//   for(var item of arr){
+//     if(args.indexOf(item) === -1){
+//       destroyed.push(item)
+//     }
+//   }
+//   return destroyed;
+// }
+// console.log(destroyer(["tree", "hamburger", 53], "tree", 53));
 
-console.log(destroyer(["tree", "hamburger", 53], "tree", 53));
+// Intermediate Algorithm Scripting: Wherefore art thou
+function whatIsInAName(collection, source) {
+    let arr = collection.filter(obj => {
+    for(let item in source){
+      if(source[item] != obj[item]){
+        return false;
+      }
+    }
+    return true;
+  });
+  return arr;
+}
+console.log(whatIsInAName([{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }], { "apple": 1 }));
