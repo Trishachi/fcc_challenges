@@ -62,12 +62,12 @@
 // Intermediate Algorithm Scripting: Spinal Tap Case
 // Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
 
-function spinalCase(str) {
-  let regEx1 = /([a-z])([A-Z])/g;
-  let regEx2 = /\s|_/g;
-  let result = str.replace(regEx1, "$1 $2");
-  result = result.replace(regEx2, "-");
-  result = result.toLowerCase();
-  return result;
-  }
-console.log(spinalCase('thisIsSpinalTap"'));
+// function spinalCase(str) {
+//   let regEx1 = /([a-z])([A-Z])/g;
+//   let regEx2 = /\s|_/g;
+//   let result = str.replace(regEx1, "$1 $2");
+//   result = result.replace(regEx2, "-");
+//   result = result.toLowerCase();
+//   return result;
+//   }
+// console.log(spinalCase('thisIsSpinalTap"'));
