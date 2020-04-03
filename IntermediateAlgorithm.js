@@ -46,15 +46,28 @@
 // console.log(destroyer(["tree", "hamburger", 53], "tree", 53));
 
 // Intermediate Algorithm Scripting: Wherefore art thou
-function whatIsInAName(collection, source) {
-    let arr = collection.filter(obj => {
-    for(let item in source){
-      if(source[item] != obj[item]){
-        return false;
-      }
-    }
-    return true;
-  });
-  return arr;
-}
-console.log(whatIsInAName([{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }], { "apple": 1 }));
+// function whatIsInAName(collection, source) {
+//     let arr = collection.filter(obj => {
+//     for(let item in source){
+//       if(source[item] != obj[item]){
+//         return false;
+//       }
+//     }
+//     return true;
+//   });
+//   return arr;
+// }
+// console.log(whatIsInAName([{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }], { "apple": 1 }));
+
+// Intermediate Algorithm Scripting: Spinal Tap Case
+// Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+
+function spinalCase(str) {
+  let regEx1 = /([a-z])([A-Z])/g;
+  let regEx2 = /\s|_/g;
+  let result = str.replace(regEx1, "$1 $2");
+  result = result.replace(regEx2, "-");
+  result = result.toLowerCase();
+  return result;
+  }
+console.log(spinalCase('thisIsSpinalTap"'));
