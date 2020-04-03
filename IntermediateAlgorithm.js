@@ -71,3 +71,20 @@
 //   return result;
 //   }
 // console.log(spinalCase('thisIsSpinalTap"'));
+
+// Intermediate Algorithm Scripting: Pig Latin
+// Translate the provided string to Pig Latin. Input strings are guaranteed to be English words in all lowercase.
+function translatePigLatin(str) {
+  let vowels = ["a", "e", "i", "o", "u"];
+  for(let index = 0; index < str.length; index++){
+    let xter = str[index];
+    if(vowels.indexOf(xter) != -1 && index === 0){
+      return str + "way";
+    }
+    if(vowels.indexOf(xter) != -1){
+      return str.slice(index) + str.slice(0,index) + "ay";
+    }
+  }
+  return str + "ay";
+}
+console.log(translatePigLatin("rhythm"));
