@@ -74,17 +74,37 @@
 
 // Intermediate Algorithm Scripting: Pig Latin
 // Translate the provided string to Pig Latin. Input strings are guaranteed to be English words in all lowercase.
-function translatePigLatin(str) {
-  let vowels = ["a", "e", "i", "o", "u"];
-  for(let index = 0; index < str.length; index++){
-    let xter = str[index];
-    if(vowels.indexOf(xter) != -1 && index === 0){
-      return str + "way";
-    }
-    if(vowels.indexOf(xter) != -1){
-      return str.slice(index) + str.slice(0,index) + "ay";
-    }
+// function translatePigLatin(str) {
+//   let vowels = ["a", "e", "i", "o", "u"];
+//   for(let index = 0; index < str.length; index++){
+//     let xter = str[index];
+//     if(vowels.indexOf(xter) != -1 && index === 0){
+//       return str + "way";
+//     }
+//     if(vowels.indexOf(xter) != -1){
+//       return str.slice(index) + str.slice(0,index) + "ay";
+//     }
+//   }
+//   return str + "ay";
+// }
+// console.log(translatePigLatin("rhythm"));
+
+// Intermediate Algorithm Scripting: Search and Replace
+// Perform a search and replace on the sentence using the
+// arguments provided and return the new sentence.
+function myReplace(str, before, after) {
+  str = str.split(" ");
+  // str.forEach(word => console.log(word));
+  if(str.indexOf(before) == -1){
+    return "Text not found in the sentence";
+  } else {
+    let index = str.indexOf(before);
+    if(/^[A-Z]/.test(before)){
+      after = after.charAt(0).toUpperCase() + after.slice(1);
+      }
+    str[index] = after;
+    str = str.join(" ");
   }
-  return str + "ay";
+  return str;
 }
-console.log(translatePigLatin("rhythm"));
+console.log(myReplace("His name is Tom", "Tom", "john"));
