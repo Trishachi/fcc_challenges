@@ -92,19 +92,53 @@
 // Intermediate Algorithm Scripting: Search and Replace
 // Perform a search and replace on the sentence using the
 // arguments provided and return the new sentence.
-function myReplace(str, before, after) {
-  str = str.split(" ");
-  // str.forEach(word => console.log(word));
-  if(str.indexOf(before) == -1){
-    return "Text not found in the sentence";
-  } else {
-    let index = str.indexOf(before);
-    if(/^[A-Z]/.test(before)){
-      after = after.charAt(0).toUpperCase() + after.slice(1);
-      }
-    str[index] = after;
-    str = str.join(" ");
-  }
-  return str;
-}
-console.log(myReplace("His name is Tom", "Tom", "john"));
+// function myReplace(str, before, after) {
+//   str = str.split(" ");
+//   // str.forEach(word => console.log(word));
+//   if(str.indexOf(before) == -1){
+//     return "Text not found in the sentence";
+//   } else {
+//     let index = str.indexOf(before);
+//     if(/^[A-Z]/.test(before)){
+//       after = after.charAt(0).toUpperCase() + after.slice(1);
+//       }
+//     str[index] = after;
+//     str = str.join(" ");
+//   }
+//   return str;
+// }
+// console.log(myReplace("His name is Tom", "Tom", "john"));
+
+// Intermediate Algorithm Scripting: DNA Pairing
+// The DNA strand is missing the pairing element.
+// Take each character, get its pair, and return the results as a 2d array.
+// Base pairs are a pair of AT and CG. Match the missing element to the provided character.
+// For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]]
+
+function pairElement(str) {
+  let finalArray = [];
+
+  let dnaPair = function(xter){
+    switch(xter){
+      case "A":
+        finalArray.push(["A", "T"]);
+        break;
+      case "T":
+        finalArray.push(["T", "A"]);
+        break;
+      case "C":
+        finalArray.push(["C", "G"]);
+        break;
+      case "G":
+        finalArray.push(["G", "C"]);
+        break;
+      default:
+        return "Invalid Character Selected"
+    }
+  };
+  for (let text of str) {
+      dnaPair(text);
+    }
+    return finalArray;
+};
+console.log(pairElement("ATCGA"));
