@@ -79,5 +79,5 @@ function telephoneCheck(str) {
   } else {
     return true;
   }
-}
+} 
 console.log(telephoneCheck("1 555-555-5555"));
