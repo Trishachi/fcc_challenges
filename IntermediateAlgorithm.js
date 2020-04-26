@@ -115,30 +115,52 @@
 // Base pairs are a pair of AT and CG. Match the missing element to the provided character.
 // For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]]
 
-function pairElement(str) {
-  let finalArray = [];
+// function pairElement(str) {
+//   let finalArray = [];
+//
+//   let dnaPair = function(xter){
+//     switch(xter){
+//       case "A":
+//         finalArray.push(["A", "T"]);
+//         break;
+//       case "T":
+//         finalArray.push(["T", "A"]);
+//         break;
+//       case "C":
+//         finalArray.push(["C", "G"]);
+//         break;
+//       case "G":
+//         finalArray.push(["G", "C"]);
+//         break;
+//       default:
+//         return "Invalid Character Selected"
+//     }
+//   };
+//   for (let text of str) {
+//       dnaPair(text);
+//     }
+//     return finalArray;
+// };
+// console.log(pairElement("ATCGA"));
 
-  let dnaPair = function(xter){
-    switch(xter){
-      case "A":
-        finalArray.push(["A", "T"]);
-        break;
-      case "T":
-        finalArray.push(["T", "A"]);
-        break;
-      case "C":
-        finalArray.push(["C", "G"]);
-        break;
-      case "G":
-        finalArray.push(["G", "C"]);
-        break;
-      default:
-        return "Invalid Character Selected"
+// Intermediate Algorithm Scripting: Missing letters
+// Find the missing letter in the passed letter range and return it.
+// If all letters are present in the range, return undefined.
+function fearNotLetter(str) {
+  let alphabets = "abcdefghijklmnopqrstuvwxyz";
+  let missingLetter = "";
+  if(alphabets.includes(str)) {
+    return undefined
+  } else {
+    let index = 0;
+    while(index < alphabets.length){
+      if(alphabets.charCodeAt(index) !== str.charCodeAt(index)){
+        console.log(alphabets);
+        return missingLetter;
+      }
     }
-  };
-  for (let text of str) {
-      dnaPair(text);
-    }
-    return finalArray;
-};
-console.log(pairElement("ATCGA"));
+
+  }
+}
+
+console.log(fearNotLetter("abcde"));
