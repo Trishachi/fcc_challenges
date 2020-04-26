@@ -147,20 +147,15 @@
 // Find the missing letter in the passed letter range and return it.
 // If all letters are present in the range, return undefined.
 function fearNotLetter(str) {
-  let alphabets = "abcdefghijklmnopqrstuvwxyz";
   let missingLetter = "";
-  if(alphabets.includes(str)) {
-    return undefined
-  } else {
-    let index = 0;
-    while(index < alphabets.length){
-      if(alphabets.charCodeAt(index) !== str.charCodeAt(index)){
-        console.log(alphabets);
-        return missingLetter;
-      }
+  for(let i = 0; i < str.length; i++){
+    let correspondingCode = str.charCodeAt(i);
+    // console.log(str[i] + " - " + correspondingCode);
+    // console.log(correspondingCode - 1);
+    if(correspondingCode - str.charCodeAt(i - 1) > 1){
+      missingLetter = String.fromCharCode(str.charCodeAt(i - 1) + 1);
+      return missingLetter;
     }
-
   }
 }
-
-console.log(fearNotLetter("abcde"));
+console.log(fearNotLetter("abcdefghjklmno"));
