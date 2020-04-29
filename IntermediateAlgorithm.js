@@ -146,16 +146,35 @@
 // Intermediate Algorithm Scripting: Missing letters
 // Find the missing letter in the passed letter range and return it.
 // If all letters are present in the range, return undefined.
-function fearNotLetter(str) {
-  let missingLetter = "";
-  for(let i = 0; i < str.length; i++){
-    let correspondingCode = str.charCodeAt(i);
-    // console.log(str[i] + " - " + correspondingCode);
-    // console.log(correspondingCode - 1);
-    if(correspondingCode - str.charCodeAt(i - 1) > 1){
-      missingLetter = String.fromCharCode(str.charCodeAt(i - 1) + 1);
-      return missingLetter;
+// function fearNotLetter(str) {
+//   let missingLetter = "";
+//   for(let i = 0; i < str.length; i++){
+//     let correspondingCode = str.charCodeAt(i);
+//     // console.log(str[i] + " - " + correspondingCode);
+//     // console.log(correspondingCode - 1);
+//     if(correspondingCode - str.charCodeAt(i - 1) > 1){
+//       missingLetter = String.fromCharCode(str.charCodeAt(i - 1) + 1);
+//       return missingLetter;
+//     }
+//   }
+// }
+// console.log(fearNotLetter("abcdefghjklmno"));
+
+// Intermediate Algorithm Scripting: Sorted Union
+// Write a function that takes two or more arrays and returns a new array
+// of unique values in the order of the original provided arrays.
+function uniteUnique(...arr) {
+  let finalArray = [];
+  for(let i = 0; i < arr.length; i++){
+    let innerArray = arr[i];
+    // console.log(innerArray);
+    for(let j = 0; j < innerArray.length; j++){
+      // console.log(innerArray[j]);
+      finalArray.push(innerArray[j]);
     }
   }
+  finalArray = finalArray.filter((item, index) => finalArray.indexOf(item) === index);
+  return finalArray;
 }
-console.log(fearNotLetter("abcdefghjklmno"));
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
