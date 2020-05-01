@@ -186,12 +186,26 @@ function convertHTML(str) {
   if(regEx.test(str)){
     let result = "";
     for (xter of str){
-      // console.log(xter);
-      if(xter === "&"){
-        result += "amp;";
+      switch(xter){
+        case "&":
+          result += "&amp;";
+          break;
+        case "<":
+          result += "&lt;";
+          break;
+        case ">":
+          result += "&gt;";
+          break;
+        case '"':
+          result += "&quot;";
+          break;
+        case "'":
+          result += "apos";
+          break;
+        default:
+          result += xter;
       }
     }
-
     return result;
   } else {
       return str;
