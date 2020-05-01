@@ -163,18 +163,40 @@
 // Intermediate Algorithm Scripting: Sorted Union
 // Write a function that takes two or more arrays and returns a new array
 // of unique values in the order of the original provided arrays.
-function uniteUnique(...arr) {
-  let finalArray = [];
-  for(let i = 0; i < arr.length; i++){
-    let innerArray = arr[i];
-    // console.log(innerArray);
-    for(let j = 0; j < innerArray.length; j++){
-      // console.log(innerArray[j]);
-      finalArray.push(innerArray[j]);
+// function uniteUnique(...arr) {
+//   let finalArray = [];
+//   for(let i = 0; i < arr.length; i++){
+//     let innerArray = arr[i];
+//     // console.log(innerArray);
+//     for(let j = 0; j < innerArray.length; j++){
+//       // console.log(innerArray[j]);
+//       finalArray.push(innerArray[j]);
+//     }
+//   }
+//   finalArray = finalArray.filter((item, index) => finalArray.indexOf(item) === index);
+//   return finalArray;
+// }
+// console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+
+// Intermediate Algorithm Scripting: Convert HTML Entities
+// Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to
+// their corresponding HTML entities.
+function convertHTML(str) {
+  let regEx = /[&<>"']/g;
+  if(regEx.test(str)){
+    let result = "";
+    for (xter of str){
+      // console.log(xter);
+      if(xter === "&"){
+        result += "amp;";
+      }
     }
+
+    return result;
+  } else {
+      return str;
   }
-  finalArray = finalArray.filter((item, index) => finalArray.indexOf(item) === index);
-  return finalArray;
 }
 
-console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+
+console.log(convertHTML("Dolce & Gabbana"));
