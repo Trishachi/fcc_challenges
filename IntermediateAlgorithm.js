@@ -181,36 +181,53 @@
 // Intermediate Algorithm Scripting: Convert HTML Entities
 // Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to
 // their corresponding HTML entities.
-function convertHTML(str) {
-  let regEx = /[&<>"']/g;
-  if(regEx.test(str)){
-    let result = "";
-    for (xter of str){
-      switch(xter){
-        case "&":
-          result += "&amp;";
-          break;
-        case "<":
-          result += "&lt;";
-          break;
-        case ">":
-          result += "&gt;";
-          break;
-        case '"':
-          result += "&quot;";
-          break;
-        case "'":
-          result += "apos";
-          break;
-        default:
-          result += xter;
-      }
+// function convertHTML(str) {
+//   let regEx = /[&<>"']/g;
+//   if(regEx.test(str)){
+//     let result = "";
+//     for (let xter of str){
+//       switch(xter){
+//         case "&":
+//           result += "&amp;";
+//           break;
+//         case "<":
+//           result += "&lt;";
+//           break;
+//         case ">":
+//           result += "&gt;";
+//           break;
+//         case '"':
+//           result += "&quot;";
+//           break;
+//         case "'":
+//           result += "&apos;";
+//           break;
+//         default:
+//           result += xter;
+//       }
+//     }
+//     return result;
+//   } else {
+//       return str;
+//   }
+// }
+// console.log(convertHTML("Dolce & Gabbana"));
+
+// Intermediate Algorithm Scripting: Sum All Odd Fibonacci Numbers
+// Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num
+function sumFibs(num) {
+  let start = 0;
+  let next = 1;
+  let index;
+  let oddFibSum = 0;
+  for(let i = 2; i <= num; i++){
+    index = start + next;
+    start = next;
+    next = index;
+    if(index % 2 !== 0 && index <= num){
+      oddFibSum = index + oddFibSum;
     }
-    return result;
-  } else {
-      return str;
   }
+  return oddFibSum + 1;
 }
-
-
-console.log(convertHTML("Dolce & Gabbana"));
+console.log(sumFibs(75024));
