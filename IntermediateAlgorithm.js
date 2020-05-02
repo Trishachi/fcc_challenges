@@ -215,19 +215,42 @@
 
 // Intermediate Algorithm Scripting: Sum All Odd Fibonacci Numbers
 // Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num
-function sumFibs(num) {
-  let start = 0;
-  let next = 1;
-  let index;
-  let oddFibSum = 0;
-  for(let i = 2; i <= num; i++){
-    index = start + next;
-    start = next;
-    next = index;
-    if(index % 2 !== 0 && index <= num){
-      oddFibSum = index + oddFibSum;
+// function sumFibs(num) {
+//   let start = 0;
+//   let next = 1;
+//   let index;
+//   let oddFibSum = 0;
+//   for(let i = 2; i <= num; i++){
+//     index = start + next;
+//     start = next;
+//     next = index;
+//     if(index % 2 !== 0 && index <= num){
+//       oddFibSum = index + oddFibSum;
+//     }
+//   }
+//   return oddFibSum + 1;
+// }
+// console.log(sumFibs(75024));
+
+// Intermediate Algorithm Scripting: Sum All Primes
+// Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.
+function sumPrimes(num) {
+  let primeList = [];
+  let sumOddPrimes = 0;
+
+  function isPrime(val) {
+    for(let i = 2; i < val; i++){
+    if(val % i === 0) return false;
+    }
+    return num > 1;
+  }
+
+  for(let j = 2; j <= num; j++){
+    if(isPrime(j) !== false) {
+      primeList.push(j);
+      sumOddPrimes += j;
     }
   }
-  return oddFibSum + 1;
+  return sumOddPrimes;
 }
-console.log(sumFibs(75024));
+console.log(sumPrimes(977));
