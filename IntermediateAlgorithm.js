@@ -267,9 +267,6 @@
 var Person = function(firstAndLast) {
   // Complete the method below and implement the others similarly
   let namesArr = firstAndLast.split(" ");
-  // let firstName = namesArr[0];
-  // let lastName = namesArr[1];
-
   this.getFirstName = function() {
     return namesArr[0];
   },
@@ -281,18 +278,19 @@ var Person = function(firstAndLast) {
   },
   this.setFirstName = function(first) {
     namesArr[0] = first;
+    return namesArr[0];
   },
   this.setLastName = function(last) {
     namesArr[1] = last;
+    return namesArr[1];
   },
   this.setFullName = function(firstAndLast){
-    names = firstAndLast.split(" ");
+    let names = firstAndLast.split(" ");
     this.setFirstName(names[0]);
     this.setLastName(names[1]);
   }
-
 };
 
 var bob = new Person('Bob Ross');
-bob.setFullName("Haskell Curry")
+bob.getFullName("Haskell Curry")
 console.log(bob.getFullName());
