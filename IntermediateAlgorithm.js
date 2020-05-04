@@ -234,23 +234,65 @@
 
 // Intermediate Algorithm Scripting: Sum All Primes
 // Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.
-function sumPrimes(num) {
-  let primeList = [];
-  let sumOddPrimes = 0;
+// function sumPrimes(num) {
+//   let primeList = [];
+//   let sumOddPrimes = 0;
+//
+//   function isPrime(val) {
+//     for(let i = 2; i < val; i++){
+//     if(val % i === 0) return false;
+//     }
+//     return num > 1;
+//   }
+//
+//   for(let j = 2; j <= num; j++){
+//     if(isPrime(j) !== false) {
+//       primeList.push(j);
+//       sumOddPrimes += j;
+//     }
+//     console.log(primeList);
+//   }
+//   return sumOddPrimes;
+// }
+// console.log(sumPrimes(977));
 
-  function isPrime(val) {
-    for(let i = 2; i < val; i++){
-    if(val % i === 0) return false;
-    }
-    return num > 1;
+// Intermediate Algorithm Scripting: Make a Person
+// Fill in the object constructor with the following methods below:
+// getFirstName()
+// getLastName()
+// getFullName()
+// setFirstName(first)
+// setLastName(last)
+// setFullName(firstAndLast)
+var Person = function(firstAndLast) {
+  // Complete the method below and implement the others similarly
+  let namesArr = firstAndLast.split(" ");
+  // let firstName = namesArr[0];
+  // let lastName = namesArr[1];
+
+  this.getFirstName = function() {
+    return namesArr[0];
+  },
+  this.getLastName = function() {
+    return namesArr[1];
+  },
+  this.getFullName = function() {
+    return namesArr[0] + " " + namesArr[1];
+  },
+  this.setFirstName = function(first) {
+    namesArr[0] = first;
+  },
+  this.setLastName = function(last) {
+    namesArr[1] = last;
+  },
+  this.setFullName = function(firstAndLast){
+    names = firstAndLast.split(" ");
+    this.setFirstName(names[0]);
+    this.setLastName(names[1]);
   }
 
-  for(let j = 2; j <= num; j++){
-    if(isPrime(j) !== false) {
-      primeList.push(j);
-      sumOddPrimes += j;
-    }
-  }
-  return sumOddPrimes;
-}
-console.log(sumPrimes(977));
+};
+
+var bob = new Person('Bob Ross');
+bob.setFullName("Haskell Curry")
+console.log(bob.getFullName());
