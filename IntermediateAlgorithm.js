@@ -264,33 +264,47 @@
 // setFirstName(first)
 // setLastName(last)
 // setFullName(firstAndLast)
-var Person = function(firstAndLast) {
-  // Complete the method below and implement the others similarly
-  let namesArr = firstAndLast.split(" ");
-  this.getFirstName = function() {
-    return namesArr[0];
-  },
-  this.getLastName = function() {
-    return namesArr[1];
-  },
-  this.getFullName = function() {
-    return namesArr[0] + " " + namesArr[1];
-  },
-  this.setFirstName = function(first) {
-    namesArr[0] = first;
-    return namesArr[0];
-  },
-  this.setLastName = function(last) {
-    namesArr[1] = last;
-    return namesArr[1];
-  },
-  this.setFullName = function(firstAndLast){
-    let names = firstAndLast.split(" ");
-    this.setFirstName(names[0]);
-    this.setLastName(names[1]);
-  }
-};
+// var Person = function(firstAndLast) {
+//   // Complete the method below and implement the others similarly
+//   let namesArr = firstAndLast.split(" ");
+//   this.getFirstName = function() {
+//     return namesArr[0];
+//   },
+//   this.getLastName = function() {
+//     return namesArr[1];
+//   },
+//   this.getFullName = function() {
+//     return namesArr[0] + " " + namesArr[1];
+//   },
+//   this.setFirstName = function(first) {
+//     namesArr[0] = first;
+//     return namesArr[0];
+//   },
+//   this.setLastName = function(last) {
+//     namesArr[1] = last;
+//     return namesArr[1];
+//   },
+//   this.setFullName = function(firstAndLast){
+//     let names = firstAndLast.split(" ");
+//     this.setFirstName(names[0]);
+//     this.setLastName(names[1]);
+//   }
+// };
+//
+// var bob = new Person('Bob Ross');
+// bob.getFullName("Haskell Curry")
+// console.log(bob.getFullName());
 
-var bob = new Person('Bob Ross');
-bob.getFullName("Haskell Curry")
-console.log(bob.getFullName());
+// Intermediate Algorithm Scripting: Binary Agents
+// Return an English translated sentence of the passed binary string.
+// The binary string will be space separated.
+function binaryAgent(str) {
+  let result = "";
+  let binArr = str.match(/[0-1]{8}/g);
+  for(let i = 0; i < binArr.length; i++){
+    result += String.fromCharCode(parseInt(binArr[i], 2).toString(10));
+  }
+  return result;
+}
+
+console.log(binaryAgent("01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001"));
