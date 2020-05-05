@@ -298,13 +298,20 @@
 // Intermediate Algorithm Scripting: Binary Agents
 // Return an English translated sentence of the passed binary string.
 // The binary string will be space separated.
-function binaryAgent(str) {
-  let result = "";
-  let binArr = str.match(/[0-1]{8}/g);
-  for(let i = 0; i < binArr.length; i++){
-    result += String.fromCharCode(parseInt(binArr[i], 2).toString(10));
-  }
-  return result;
-}
+// function binaryAgent(str) {
+//   let result = "";
+//   let binArr = str.match(/[0-1]{8}/g);
+//   for(let i = 0; i < binArr.length; i++){
+//     result += String.fromCharCode(parseInt(binArr[i], 2).toString(10));
+//   }
+//   return result;
+// }
+// console.log(binaryAgent("01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001"));
 
-console.log(binaryAgent("01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001"));
+// Intermediate Algorithm Scripting: Steamroller
+// Flatten a nested array. You must account for varying levels of nesting.
+function steamrollArray(arr) {
+  return arr.reduce((acc, val) => acc.concat(Array.isArray(val) ? steamrollArray(val) : val), []);
+};
+
+console.log(steamrollArray([[["a"]], [["b"]]]));
