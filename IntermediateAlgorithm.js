@@ -310,8 +310,33 @@
 
 // Intermediate Algorithm Scripting: Steamroller
 // Flatten a nested array. You must account for varying levels of nesting.
-function steamrollArray(arr) {
-  return arr.reduce((acc, val) => acc.concat(Array.isArray(val) ? steamrollArray(val) : val), []);
-};
+// function steamrollArray(arr) {
+//   return arr.reduce((acc, val) => acc.concat(Array.isArray(val) ? steamrollArray(val) : val), []);
+// };
+// console.log(steamrollArray([[["a"]], [["b"]]]));
 
-console.log(steamrollArray([[["a"]], [["b"]]]));
+// Intermediate Algorithm Scripting: Map the Debris
+// Return a new array that transforms the elements'
+// average altitude into their orbital periods (in seconds).
+// T^2 = R^34Pi^2/GM
+// R = earthRadius + altitude
+function orbitalPeriod(arr) {
+  const GM = 398600.4418;
+  const earthRadius = 6367.4447;
+  const pi = Math.PI;
+  let newArr = [];
+  arr.map(item => {
+    let result = {
+      name: "",
+      orbitalPeriod: 0
+    };
+    let R = earthRadius + item.avgAlt;
+    let T = Math.sqrt((Math.pow(R, 3)*(4*Math.pow(pi, 2)))/GM);    
+    result.name = item.name;
+    result.orbitalPeriod = Math.round(T);
+    newArr.push(result)
+  });
+  return newArr;
+}
+
+console.log(orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]));
