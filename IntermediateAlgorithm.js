@@ -374,10 +374,26 @@
 // element (the 0 index) until the function func returns true when the iterated element is passed through it.
 // Then return the rest of the array once the condition is satisfied, otherwise,
 // arr should be returned as an empty array.
-function dropElements(arr, func) {
-  while (!func(arr[0])) {
-    arr.shift();
-  }
-  return arr;
+// function dropElements(arr, func) {
+//   while (!func(arr[0])) {
+//     arr.shift();
+//   }
+//   return arr;
+// }
+// console.log(dropElements([1, 2, 3, 4], function(n) {return n >= 3; }));
+
+// Intermediate Algorithm Scripting: Everything Be True
+// Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
+function truthCheck(collection, pre) {
+  let count = 0;
+ collection.map(item => {
+   if(item.hasOwnProperty(pre) && Boolean(item[pre])){
+     count++;
+   }
+
+
+ })
+ return count == collection.length;
 }
-console.log(dropElements([1, 2, 3, 4], function(n) {return n >= 3; }));
+
+console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"));
