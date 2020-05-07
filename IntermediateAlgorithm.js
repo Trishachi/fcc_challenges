@@ -343,28 +343,41 @@
 // Intermediate Algorithm Scripting: Smallest Common Multiple
 // Find the smallest common multiple of the provided parameters that can be evenly divided by both,
 // as well as by all sequential numbers in the range between these parameters.
-function smallestCommons(arr) {
-  function getRange(array){
-    array = array.sort(function(a,b){return a -b});
-    let range = [];
-    for(let i = array[0]; i <= array[1]; i++){
-      range.push(i);
-  }
-  return range;
-  }
+// function smallestCommons(arr) {
+//   function getRange(array){
+//     array = array.sort(function(a,b){return a -b});
+//     let range = [];
+//     for(let i = array[0]; i <= array[1]; i++){
+//       range.push(i);
+//   }
+//   return range;
+//   }
+//
+//   function getDivisor(x, y){
+//     return !y ? x : getDivisor(y, x % y);
+//   }
+//
+//   function lcm(min, max){
+//     return (min * max)/getDivisor(min, max);
+//   }
+//
+//   let multiple = arr[0];
+//   getRange(arr).forEach(function(num){
+//     multiple = lcm(multiple, num);
+//   });
+//   return multiple;
+// }
+// console.log(smallestCommons([23,18]));
 
-  function getDivisor(x, y){
-    return !y ? x : getDivisor(y, x % y);
+// Intermediate Algorithm Scripting: Drop it
+// Given the array arr, iterate through and remove each element starting from the first
+// element (the 0 index) until the function func returns true when the iterated element is passed through it.
+// Then return the rest of the array once the condition is satisfied, otherwise,
+// arr should be returned as an empty array.
+function dropElements(arr, func) {
+  while (!func(arr[0])) {
+    arr.shift();
   }
-
-  function lcm(min, max){
-    return (min * max)/getDivisor(min, max);
-  }
-
-  let multiple = arr[0];
-  getRange(arr).forEach(function(num){
-    multiple = lcm(multiple, num);
-  });
-  return multiple;
+  return arr;
 }
-console.log(smallestCommons([23,18]));
+console.log(dropElements([1, 2, 3, 4], function(n) {return n >= 3; }));
