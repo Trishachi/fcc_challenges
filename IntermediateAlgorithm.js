@@ -384,16 +384,28 @@
 
 // Intermediate Algorithm Scripting: Everything Be True
 // Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
-function truthCheck(collection, pre) {
-  let count = 0;
- collection.map(item => {
-   if(item.hasOwnProperty(pre) && Boolean(item[pre])){
-     count++;
-   }
+// function truthCheck(collection, pre) {
+//   let count = 0;
+//  collection.map(item => {
+//    if(item.hasOwnProperty(pre) && Boolean(item[pre])){
+//      count++;
+//    }
+//  })
+//  return count == collection.length;
+// }
+//
+// console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"));
 
-
- })
- return count == collection.length;
+// Intermediate Algorithm Scripting: Arguments Optional
+// Create a function that sums two arguments together.
+// If only one argument is provided, then return a function that expects one argument and returns the sum.
+function addTogether(num1, num2) {
+  if(typeof num1 !== "number") {
+    return undefined;
+  }
+  const sum = num2 =>
+    typeof num2 === "number" ? num1 + num2 : undefined;
+  return typeof num2 === "undefined" ? num2 => sum(num2) : sum(num2);
 }
 
-console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"));
+console.log(addTogether(2, 3));
