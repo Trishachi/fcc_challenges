@@ -408,4 +408,4 @@ function addTogether(num1, num2) {
   return typeof num2 === "undefined" ? num2 => sum(num2) : sum(num2);
 }
 
-console.log(addTogether(2, 3));
+console.log(addTogether(2) (3));
