@@ -4,6 +4,7 @@
 // A mixin is called with the @include directive:
 //The @if directive in Sass is useful to test for a specific case - it works just like the if statement in JavaScript.
 //And just like in JavaScript, @else if and @else test for more conditions:
+//The @for directive adds styles in a loop, very similar to a for loop in JavaScript.
 
 // Sass: Store Data with Sass Variables
 // Create a variable $text-color and set it to red.
@@ -81,27 +82,43 @@
 // medium - 3px solid black
 // heavy - 6px solid black
 // If $val is not light, medium, or heavy, the border should be set to none.
-<style type='text/sass'>
-@mixin border-stroke($val){
-  @if $val == light {
-    border: 1px solid black;
-  }
-  @else if $val == medium {
-    border: 3px solid black;
-  }
-  @else if $val == heavy {
-    border: 6px solid black;
-  }
-  @else {
-    border: none;
-  }
-}
+// <style type='text/sass'>
+// @mixin border-stroke($val){
+//   @if $val == light {
+//     border: 1px solid black;
+//   }
+//   @else if $val == medium {
+//     border: 3px solid black;
+//   }
+//   @else if $val == heavy {
+//     border: 6px solid black;
+//   }
+//   @else {
+//     border: none;
+//   }
+// }
 
-  #box {
-    width: 150px;
-    height: 150px;
-    background-color: red;
-    @include border-stroke(light);
-  }
-</style>
-<div id="box"></div>
+//   #box {
+//     width: 150px;
+//     height: 150px;
+//     background-color: red;
+//     @include border-stroke(light);
+//   }
+// </style>
+// <div id="box"></div>
+
+// Sass: Use @for to Create a Sass Loop
+// Write a @for directive that takes a variable $j that goes from 1 to 6.
+// It should create 5 classes called .text-1 to .text-5 where each has a
+// font-size set to 15px multiplied by the index.
+// <style type='text/sass'>
+// @for $j from 1 to 6{
+//   .text-#{$j} { font-size: 15px * $j; }
+// }
+// </style>
+
+// <p class="text-1">Hello</p>
+// <p class="text-2">Hello</p>
+// <p class="text-3">Hello</p>
+// <p class="text-4">Hello</p>
+// <p class="text-5">Hello</p>
