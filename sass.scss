@@ -6,7 +6,11 @@
 //And just like in JavaScript, @else if and @else test for more conditions:
 //The @for directive adds styles in a loop, very similar to a for loop in JavaScript.
 // The @while directive is an option with similar functionality to the JavaScript while loop. It creates CSS rules until a condition is met.
+//Partials in Sass are separate files that hold segments of CSS code. These are imported and used in other Sass files. This is a great way to group similar code into a module to keep it organized.
 
+
+
+//Codes
 // Sass: Store Data with Sass Variables
 // Create a variable $text-color and set it to red.
 // Then change the value of the color property for the
@@ -151,15 +155,21 @@
 // There should be 5 different classes from text-1 to text-5.
 // Then set font-size to 15px multiplied by the current index number.
 // Make sure to avoid an infinite loop!
-<style type='text/sass'>
-  $x: 1;
-  @while $x < 6 {
-    .text-#{$x} { font-size: 15px * $x;}
-    $x: $x + 1;
-  }
-</style>
-<p class="text-1">Hello</p>
-<p class="text-2">Hello</p>
-<p class="text-3">Hello</p>
-<p class="text-4">Hello</p>
-<p class="text-5">Hello</p>
+// <style type='text/sass'>
+//   $x: 1;
+//   @while $x < 6 {
+//     .text-#{$x} { font-size: 15px * $x;}
+//     $x: $x + 1;
+//   }
+// </style>
+// <p class="text-1">Hello</p>
+// <p class="text-2">Hello</p>
+// <p class="text-3">Hello</p>
+// <p class="text-4">Hello</p>
+// <p class="text-5">Hello</p>
+
+// Sass: Split Your Styles into Smaller Chunks with Partials
+// Write an @import statement to import a partial named _variables.scss into the main.scss file.
+
+// The main.scss file
+@import 'variables'
