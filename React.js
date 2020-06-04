@@ -1183,49 +1183,90 @@
 // };
 
 // React - 41: Use a Ternary Expression for Conditional Rendering
-const inputStyle = {
-  width: 235,
-  margin: 5
-}
-class CheckUserAge extends React.Component {
+// const inputStyle = {
+//   width: 235,
+//   margin: 5
+// }
+// class CheckUserAge extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     // change code below this line
+//     this.state = {
+//       input: '',
+//       userAge: ''
+//     }
+//     // change code above this line
+//     this.submit = this.submit.bind(this);
+//     this.handleChange = this.handleChange.bind(this);
+//   }
+//   handleChange(e) {
+//     this.setState({
+//       input: e.target.value,
+//       userAge: ''
+//     });
+//   }
+//   submit() {
+//     this.setState(state => ({
+//       userAge: state.input
+//     }));
+//   }
+//   render() {
+//     const buttonOne = <button onClick={this.submit}>Submit</button>;
+//     const buttonTwo = <button>You May Enter</button>;
+//     const buttonThree = <button>You Shall Not Pass</button>;
+//     return (
+//       <div>
+//         <h3>Enter Your Age to Continue</h3>
+//         <input
+//           style={inputStyle}
+//           type="number"
+//           value={this.state.input}
+//           onChange={this.handleChange} /><br />
+//         {
+//           /* change code here */
+//           this.state.userAge === '' ? buttonOne : (this.state.userAge < 18 ? buttonThree : buttonTwo)
+//         }
+//       </div>
+//     );
+//   }
+// };
+
+// React - 42: Render Conditionally from Props
+class Results extends React.Component {
   constructor(props) {
     super(props);
-    // change code below this line
-    this.state = {
-      input: '',
-      userAge: ''
-    }
-    // change code above this line
-    this.submit = this.submit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleChange(e) {
-    this.setState({
-      input: e.target.value,
-      userAge: ''
-    });
-  }
-  submit() {
-    this.setState(state => ({
-      userAge: state.input
-    }));
   }
   render() {
-    const buttonOne = <button onClick={this.submit}>Submit</button>;
-    const buttonTwo = <button>You May Enter</button>;
-    const buttonThree = <button>You Shall Not Pass</button>;
+    return (
+      <h1>
+      {this.props.fiftyFifty ? "You Win!" : "You Lose!"}
+      </h1>
+    )
+  };
+};
+class GameOfChance extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 1
+    }
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState({
+      counter: this.state.counter + 1
+    });
+  }
+  render() {
+    const expression = Math.random() >= .5;
+    console.log(expression);
     return (
       <div>
-        <h3>Enter Your Age to Continue</h3>
-        <input
-          style={inputStyle}
-          type="number"
-          value={this.state.input}
-          onChange={this.handleChange} /><br />
-        {
-          /* change code here */
-          this.state.userAge === '' ? buttonOne : (this.state.userAge < 18 ? buttonThree : buttonTwo)
-        }
+        <button onClick={this.handleClick}>Play Again</button>
+        { /* change code below this line */ }
+          <Results fiftyFifty={expression}/>
+        { /* change code above this line */ }
+        <p>{'Turn: ' + this.state.counter}</p>
       </div>
     );
   }
