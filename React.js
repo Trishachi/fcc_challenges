@@ -1232,41 +1232,76 @@
 // };
 
 // React - 42: Render Conditionally from Props
-class Results extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <h1>
-      {this.props.fiftyFifty ? "You Win!" : "You Lose!"}
-      </h1>
-    )
-  };
-};
-class GameOfChance extends React.Component {
+// class Results extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//     return (
+//       <h1>
+//       {this.props.fiftyFifty ? "You Win!" : "You Lose!"}
+//       </h1>
+//     )
+//   };
+// };
+// class GameOfChance extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       counter: 1
+//     }
+//     this.handleClick = this.handleClick.bind(this);
+//   }
+//   handleClick() {
+//     this.setState({
+//       counter: this.state.counter + 1
+//     });
+//   }
+//   render() {
+//     const expression = Math.random() >= .5;
+//     console.log(expression);
+//     return (
+//       <div>
+//         <button onClick={this.handleClick}>Play Again</button>
+//         { /* change code below this line */ }
+//           <Results fiftyFifty={expression}/>
+//         { /* change code above this line */ }
+//         <p>{'Turn: ' + this.state.counter}</p>
+//       </div>
+//     );
+//   }
+// };
+
+// React - 43: Change Inline CSS Conditionally Based on Component State
+class GateKeeper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 1
-    }
-    this.handleClick = this.handleClick.bind(this);
+      input: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
   }
-  handleClick() {
-    this.setState({
-      counter: this.state.counter + 1
-    });
+  handleChange(event) {
+    this.setState({ input: event.target.value })
   }
   render() {
-    const expression = Math.random() >= .5;
-    console.log(expression);
+    let inputStyle = {
+      border: '1px solid black'
+    };
+    // change code below this line
+  if(this.state.input.length > 15) {
+    inputStyle.border = '3px solid red';
+    }
+
+    // change code above this line
     return (
       <div>
-        <button onClick={this.handleClick}>Play Again</button>
-        { /* change code below this line */ }
-          <Results fiftyFifty={expression}/>
-        { /* change code above this line */ }
-        <p>{'Turn: ' + this.state.counter}</p>
+        <h3>Don't Type Too Much:</h3>
+        <input
+          type="text"
+          style={inputStyle}
+          value={this.state.input}
+          onChange={this.handleChange} />
       </div>
     );
   }
