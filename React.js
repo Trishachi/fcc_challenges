@@ -1039,7 +1039,7 @@
 
 //React - 38:  Use Advanced JavaScript in React Render Method
 // In the code provided, the render method has an array that contains
-// 20 phrases to represent the answers found in the classic 1980's Magic Eight Ball toy. 
+// 20 phrases to represent the answers found in the classic 1980's Magic Eight Ball toy.
 // The button click event is bound to the ask method, so each time the button is clicked
 // a random number will be generated and stored as the randomIndex in state. On line 52,
 // delete the string "change me!" and reassign the answer const so your code randomly
@@ -1120,3 +1120,36 @@
 //     );
 //   }
 // };
+
+// React - 39: Render with an If-Else Condition
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: true
+    }
+    this.toggleDisplay = this.toggleDisplay.bind(this);
+  }
+  toggleDisplay() {
+    this.setState({
+      display: !this.state.display
+    });
+  }
+  render() {
+    // change code below this line
+      if(this.state.display == false){
+        return (
+          <div>
+            <button onClick={this.toggleDisplay}>Toggle Display</button>
+          </div>
+        )
+      } else {
+        return (
+           <div>
+             <button onClick={this.toggleDisplay}>Toggle Display</button>
+             <h1>Displayed!</h1>
+           </div>
+        );
+      }
+  }
+};
