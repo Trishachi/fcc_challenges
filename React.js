@@ -1122,6 +1122,42 @@
 // };
 
 // React - 39: Render with an If-Else Condition
+// class MyComponent extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       display: true
+//     }
+//     this.toggleDisplay = this.toggleDisplay.bind(this);
+//   }
+//   toggleDisplay() {
+//     this.setState({
+//       display: !this.state.display
+//     });
+//   }
+//   render() {
+//     // change code below this line
+//       if(this.state.display == false){
+//         return (
+//           <div>
+//             <button onClick={this.toggleDisplay}>Toggle Display</button>
+//           </div>
+//         )
+//       } else {
+//         return (
+//            <div>
+//              <button onClick={this.toggleDisplay}>Toggle Display</button>
+//              <h1>Displayed!</h1>
+//            </div>
+//         );
+//       }
+//   }
+// };
+
+
+// React - 40: Use && for a More Concise Conditional
+// Solve the previous example again, so the h1 only renders if display is true,
+// but use the && logical operator instead of an if/else statement.
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -1131,25 +1167,17 @@ class MyComponent extends React.Component {
     this.toggleDisplay = this.toggleDisplay.bind(this);
   }
   toggleDisplay() {
-    this.setState({
-      display: !this.state.display
-    });
+    this.setState(state => ({
+      display: !state.display
+    }));
   }
   render() {
     // change code below this line
-      if(this.state.display == false){
-        return (
-          <div>
-            <button onClick={this.toggleDisplay}>Toggle Display</button>
-          </div>
-        )
-      } else {
-        return (
-           <div>
-             <button onClick={this.toggleDisplay}>Toggle Display</button>
-             <h1>Displayed!</h1>
-           </div>
-        );
-      }
+    return (
+       <div>
+         <button onClick={this.toggleDisplay}>Toggle Display</button>
+          {this.state.display && <h1>Displayed!</h1>}
+       </div>
+    );
   }
 };
