@@ -1158,26 +1158,75 @@
 // React - 40: Use && for a More Concise Conditional
 // Solve the previous example again, so the h1 only renders if display is true,
 // but use the && logical operator instead of an if/else statement.
-class MyComponent extends React.Component {
+// class MyComponent extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       display: true
+//     }
+//     this.toggleDisplay = this.toggleDisplay.bind(this);
+//   }
+//   toggleDisplay() {
+//     this.setState(state => ({
+//       display: !state.display
+//     }));
+//   }
+//   render() {
+//     // change code below this line
+//     return (
+//        <div>
+//          <button onClick={this.toggleDisplay}>Toggle Display</button>
+//           {this.state.display && <h1>Displayed!</h1>}
+//        </div>
+//     );
+//   }
+// };
+
+// React - 41: Use a Ternary Expression for Conditional Rendering
+const inputStyle = {
+  width: 235,
+  margin: 5
+}
+class CheckUserAge extends React.Component {
   constructor(props) {
     super(props);
+    // change code below this line
     this.state = {
-      display: true
+      input: '',
+      userAge: ''
     }
-    this.toggleDisplay = this.toggleDisplay.bind(this);
+    // change code above this line
+    this.submit = this.submit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-  toggleDisplay() {
+  handleChange(e) {
+    this.setState({
+      input: e.target.value,
+      userAge: ''
+    });
+  }
+  submit() {
     this.setState(state => ({
-      display: !state.display
+      userAge: state.input
     }));
   }
   render() {
-    // change code below this line
+    const buttonOne = <button onClick={this.submit}>Submit</button>;
+    const buttonTwo = <button>You May Enter</button>;
+    const buttonThree = <button>You Shall Not Pass</button>;
     return (
-       <div>
-         <button onClick={this.toggleDisplay}>Toggle Display</button>
-          {this.state.display && <h1>Displayed!</h1>}
-       </div>
+      <div>
+        <h3>Enter Your Age to Continue</h3>
+        <input
+          style={inputStyle}
+          type="number"
+          value={this.state.input}
+          onChange={this.handleChange} /><br />
+        {
+          /* change code here */
+          this.state.userAge === '' ? buttonOne : (this.state.userAge < 18 ? buttonThree : buttonTwo)
+        }
+      </div>
     );
   }
 };
