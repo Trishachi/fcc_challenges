@@ -1381,48 +1381,50 @@
 // React - 46: Use Array.filter() to Dynamically Filter an Array
 // In the code editor, MyComponent's state is initialized with an array of users.
 // Some users are online and some aren't. Filter the array so you see only the users who are online.
-class MyComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: [
-        {
-          username: 'Jeff',
-          online: true
-        },
-        {
-          username: 'Alan',
-          online: false
-        },
-        {
-          username: 'Mary',
-          online: true
-        },
-        {
-          username: 'Jim',
-          online: false
-        },
-        {
-          username: 'Sara',
-          online: true
-        },
-        {
-          username: 'Laura',
-          online: true
-        }
-      ]
-    }
-  }
-  render() {
-    const usersOnline = this.state.users.filter(user => user.online); // change code here
-    const renderOnline = usersOnline.map((item, index) => <li key={index}>{item.username}</li> );
-    return (
-       <div>
-         <h1>Current Online Users:</h1>
-         <ul>
-           {renderOnline}
-         </ul>
-       </div>
-    );
-  }
-};
+// class MyComponent extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       users: [
+//         {
+//           username: 'Jeff',
+//           online: true
+//         },
+//         {
+//           username: 'Alan',
+//           online: false
+//         },
+//         {
+//           username: 'Mary',
+//           online: true
+//         },
+//         {
+//           username: 'Jim',
+//           online: false
+//         },
+//         {
+//           username: 'Sara',
+//           online: true
+//         },
+//         {
+//           username: 'Laura',
+//           online: true
+//         }
+//       ]
+//     }
+//   }
+//   render() {
+//     const usersOnline = this.state.users.filter(user => user.online); // change code here
+//     const renderOnline = usersOnline.map((item, index) => <li key={index}>{item.username}</li> );
+//     return (
+//        <div>
+//          <h1>Current Online Users:</h1>
+//          <ul>
+//            {renderOnline}
+//          </ul>
+//        </div>
+//     );
+//   }
+// };
+
+// React - 47: Render React on the Server with renderToString
