@@ -1308,49 +1308,72 @@
 // };
 
 // React - 44: Use Array.map() to Dynamically Render Elements
-const textAreaStyles = {
-  width: 235,
-  margin: 5
-};
-class MyToDoList extends React.Component {
-  constructor(props) {
-    super(props);
-    // change code below this line
-  this.state = {
-    userInput: '',
-    toDoList: []
-  }
-    // change code above this line
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleSubmit() {
-    const itemsArray = this.state.userInput.split(',');
-    this.setState({
-      toDoList: itemsArray
-    });
-  }
-  handleChange(e) {
-    this.setState({
-      userInput: e.target.value
-    });
-  }
-  render() {
-    const items = this.state.toDoList.map(item => <li>{item}</li>);
-    return (
-      <div>
-        <textarea
-          onChange={this.handleChange}
-          value={this.state.userInput}
-          style={textAreaStyles}
-          placeholder="Separate Items With Commas" />
-        <br />
-        <button onClick={this.handleSubmit}>Create List</button>
-        <h1>My "To Do" List:</h1>
-        <ul>
-          {items}
-        </ul>
-      </div>
-    );
-  }
+// const textAreaStyles = {
+//   width: 235,
+//   margin: 5
+// };
+// class MyToDoList extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     // change code below this line
+//   this.state = {
+//     userInput: '',
+//     toDoList: []
+//   }
+//     // change code above this line
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//     this.handleChange = this.handleChange.bind(this);
+//   }
+//   handleSubmit() {
+//     const itemsArray = this.state.userInput.split(',');
+//     this.setState({
+//       toDoList: itemsArray
+//     });
+//   }
+//   handleChange(e) {
+//     this.setState({
+//       userInput: e.target.value
+//     });
+//   }
+//   render() {
+//     const items = this.state.toDoList.map(item => <li>{item}</li>);
+//     return (
+//       <div>
+//         <textarea
+//           onChange={this.handleChange}
+//           value={this.state.userInput}
+//           style={textAreaStyles}
+//           placeholder="Separate Items With Commas" />
+//         <br />
+//         <button onClick={this.handleSubmit}>Create List</button>
+//         <h1>My "To Do" List:</h1>
+//         <ul>
+//           {items}
+//         </ul>
+//       </div>
+//     );
+//   }
+// };
+
+// React - 45: Give Sibling Elements a Unique Key Attribute
+const frontEndFrameworks = [
+  'React',
+  'Angular',
+  'Ember',
+  'Knockout',
+  'Backbone',
+  'Vue'
+];
+
+function Frameworks() {
+  const renderFrameworks = frontEndFrameworks.map((item, index) => <li key={index}>{item}</li>);
+
+  return (
+    <div>
+      <h1>Popular Front End JavaScript Frameworks</h1>
+      <ul>
+        {renderFrameworks}
+      </ul>
+    </div>
+  );
 };
