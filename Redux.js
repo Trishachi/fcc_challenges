@@ -4,6 +4,7 @@
 // when it comes to application state.
 // You can retrieve the current state held in the Redux store object with the getState() method.
 // An action creator is simply a JavaScript function that returns an action.
+// The reducer is simply a pure function that takes state and action, then returns new state.
 
 
 
@@ -45,3 +46,38 @@
 // function actionCreator(){
 //   return action;
 // }
+
+// Redux - 5: Dispatch an Action Event
+// Dispatch the LOGIN action to the Redux store by calling the dispatch method,
+// and pass in the action created by loginAction().
+// const store = Redux.createStore(
+//   (state = {login: false}) => state
+// );
+// const loginAction = () => {
+//   return {
+//     type: 'LOGIN'
+//   }
+// };
+// // Dispatch the action here:
+// store.dispatch(loginAction());
+
+// Redux - 6: Handle an Action in the Store
+// Fill in the body of the reducer function so that if it receives an action of
+// type 'LOGIN' it returns a state object with login set to true. Otherwise, it returns the current state.
+const defaultState = {
+  login: false
+};
+const reducer = (state = defaultState, action) => {
+  // change code below this line
+  if (action.type === 'LOGIN') {
+    return { login: true}
+  }
+  // change code above this line
+  return state
+};
+const store = Redux.createStore(reducer);
+const loginAction = () => {
+  return {
+    type: 'LOGIN'
+  }
+};
