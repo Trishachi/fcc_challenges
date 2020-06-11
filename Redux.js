@@ -64,20 +64,110 @@
 // Redux - 6: Handle an Action in the Store
 // Fill in the body of the reducer function so that if it receives an action of
 // type 'LOGIN' it returns a state object with login set to true. Otherwise, it returns the current state.
-const defaultState = {
-  login: false
-};
-const reducer = (state = defaultState, action) => {
-  // change code below this line
-  if (action.type === 'LOGIN') {
-    return { login: true}
+// const defaultState = {
+//   login: false
+// };
+// const reducer = (state = defaultState, action) => {
+//   // change code below this line
+//   if (action.type === 'LOGIN') {
+//     return { login: true}
+//   }
+//   // change code above this line
+//   return state
+// };
+// const store = Redux.createStore(reducer);
+// const loginAction = () => {
+//   return {
+//     type: 'LOGIN'
+//   }
+// };
+
+// Redux - 7: Use a Switch Statement to Handle Multiple Actions
+// const defaultState = {
+//   authenticated: false
+// };
+// const authReducer = (state = defaultState, action) => {
+//   // change code below this line
+// switch(action.type) {
+//   case 'LOGIN':
+//     return {authenticated: true};
+//   case 'LOGOUT':
+//         return {authenticated: false};
+//   default:
+//     return state
+// }
+//   // change code above this line
+// };
+// const store = Redux.createStore(authReducer);
+// const loginUser = () => {
+//   return {
+//     type: 'LOGIN'
+//   }
+// };
+// const logoutUser = () => {
+//   return {
+//     type: 'LOGOUT'
+//   }
+// };
+
+// Redux - 8: Use const for Action Types
+// Declare LOGIN and LOGOUT as const values and assign them
+// to the strings 'LOGIN' and 'LOGOUT', respectively.
+// Then, edit the authReducer() and the action creators to reference
+// these constants instead of string values.
+// change code below this line
+// const LOGIN = 'LOGIN';
+// const LOGOUT = 'LOGOUT';
+// // change code above this line
+// const defaultState = {
+//   authenticated: false
+// };
+// const authReducer = (state = defaultState, action) => {
+//   switch (action.type) {
+//     case LOGIN:
+//       return {
+//         authenticated: true
+//       }
+//     case LOGOUT:
+//       return {
+//         authenticated: false
+//       }
+//     default:
+//       return state;
+//   }
+// };
+//
+// const store = Redux.createStore(authReducer);
+// const loginUser = () => {
+//   return {
+//     type: LOGIN
+//   }
+// };
+// const logoutUser = () => {
+//   return {
+//     type: LOGOUT
+//   }
+// };
+
+// Redux - 9: Register a Store Listener
+const ADD = 'ADD';
+const reducer = (state = 0, action) => {
+  switch(action.type) {
+    case ADD:
+      return state + 1;
+    default:
+      return state;
   }
-  // change code above this line
-  return state
 };
 const store = Redux.createStore(reducer);
-const loginAction = () => {
-  return {
-    type: 'LOGIN'
-  }
-};
+// global count variable:
+let count = 0;
+// change code below this line
+store.subscribe(() => { count++ });
+// change code above this line
+store.dispatch({type: ADD});
+console.log(count);
+store.dispatch({type: ADD});
+console.log(count);
+store.dispatch({type: ADD});
+console.log(count);
