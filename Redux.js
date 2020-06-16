@@ -283,28 +283,54 @@
 // );
 
 // Redux - 13: Write a Counter with Redux
-const INCREMENT = 'INCREMENT'; // define a constant for increment action types
-const DECREMENT = 'DECREMENT'; // define a constant for decrement action types
-const counterReducer = (state = 0, action) => {
+// const INCREMENT = 'INCREMENT'; // define a constant for increment action types
+// const DECREMENT = 'DECREMENT'; // define a constant for decrement action types
+// const counterReducer = (state = 0, action) => {
+//   switch(action.type) {
+//     case INCREMENT:
+//       return state + 1;
+//     case DECREMENT:
+//       return state - 1;
+//     default:
+//       return state;
+//   }
+// }; // define the counter reducer which will increment or decrement the state based on the action it receives
+// const incAction = () => {
+//   return {
+//     type: INCREMENT
+//   }
+// }; // define an action creator for incrementing
+//
+// const decAction = () => {
+//   return {
+//     type: DECREMENT
+//   }
+// }; // define an action creator for decrementing
+// const store = Redux.createStore(counterReducer);; // define the Redux store here, passing in your reducers
+
+// Redux - 14: Never Mutate State
+const ADD_TO_DO = 'ADD_TO_DO';
+// A list of strings representing tasks to do:
+const todos = [
+  'Go to the store',
+  'Clean the house',
+  'Cook dinner',
+  'Learn to code',
+];
+const immutableReducer = (state = todos, action) => {
   switch(action.type) {
-    case INCREMENT:
-      return state + 1;
-    case DECREMENT:
-      return state - 1;
+    case ADD_TO_DO:
+      // don't mutate state here or the tests will fail
+      return todos.concat(action.todo)
     default:
       return state;
   }
-}; // define the counter reducer which will increment or decrement the state based on the action it receives
-const incAction = () => {
+};
+// an example todo argument would be 'Learn React',
+const addToDo = (todo) => {
   return {
-    type: INCREMENT
+    type: ADD_TO_DO,
+    todo
   }
-}; // define an action creator for incrementing
-
-const decAction = () => {
-  return {
-    type: DECREMENT
-  }
-}; // define an action creator for decrementing
-
-const store = Redux.createStore(counterReducer);; // define the Redux store here, passing in your reducers
+}
+const store = Redux.createStore(immutableReducer);
