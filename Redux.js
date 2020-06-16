@@ -337,20 +337,44 @@
 
 // Redux - 15: Use the Spread Operator on Arrays
 // Use the spread operator to return a new copy of state when a to-do is added.
-const immutableReducer = (state = ['Do not mutate state!'], action) => {
-  switch(action.type) {
-    case 'ADD_TO_DO':
-      // don't mutate state here or the tests will fail
-      let myArr = [...state, action.todo];
-      return myArr;
-    default:
-      return state;
-  }
-};
-const addToDo = (todo) => {
-  return {
-    type: 'ADD_TO_DO',
-    todo
-  }
-}
-const store = Redux.createStore(immutableReducer);
+// const immutableReducer = (state = ['Do not mutate state!'], action) => {
+//   switch(action.type) {
+//     case 'ADD_TO_DO':
+//       // don't mutate state here or the tests will fail
+//       let myArr = [...state, action.todo];
+//       return myArr;
+//     default:
+//       return state;
+//   }
+// };
+// const addToDo = (todo) => {
+//   return {
+//     type: 'ADD_TO_DO',
+//     todo
+//   }
+// }
+// const store = Redux.createStore(immutableReducer);
+
+// Redux - 16: Remove an Item from an Array
+// The reducer and action creator were modified to remove an
+// item from an array based on the index of the item.
+// Finish writing the reducer so a new state array is returned with the item at the specific index removed.
+// const immutableReducer = (state = [0,1,2,3,4,5], action) => {
+//   switch(action.type) {
+//     case 'REMOVE_ITEM':
+//       // don't mutate state here or the tests will fail
+//       return [...state.slice(0, action.index),
+//         ...state.slice(action.index + 1, state.length)];
+//     default:
+//       return state;
+//   }
+// };
+// const removeItem = (index) => {
+//   return {
+//     type: 'REMOVE_ITEM',
+//     index
+//   }
+// }
+// const store = Redux.createStore(immutableReducer);
+
+Redux - 17: Copy an Object with Object.assign
