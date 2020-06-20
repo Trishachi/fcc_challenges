@@ -88,14 +88,12 @@
 // React and Redux - 4: Use Provider to Connect Redux to React
 // Redux Code:
 const ADD = 'ADD';
-
 const addMessage = (message) => {
   return {
     type: ADD,
     message
   }
 };
-
 const messageReducer = (state = [], action) => {
   switch (action.type) {
     case ADD:
