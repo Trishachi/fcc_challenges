@@ -129,21 +129,66 @@
 //Add the style() method to the code in the editor to set the height property
 //for each element. Use a callback function to return the value
 //of the data point with the string "px" added to it.
-<style>
-  .bar {
-    width: 25px;
-    height: 100px;
-    display: inline-block;
-    background-color: blue;
-  }
-</style>
-<body>
-  <script>
-    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
-    d3.select("body").selectAll("div")
-      .data(dataset)
-      .enter()
-      .append("div")
-      .attr("class", "bar")
-      .style("height", (d) => d + "px")
-</body>
+// <style>
+//   .bar {
+//     width: 25px;
+//     height: 100px;
+//     display: inline-block;
+//     background-color: blue;
+//   }
+// </style>
+// <body>
+//   <script>
+//     const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+//     d3.select("body").selectAll("div")
+//       .data(dataset)
+//       .enter()
+//       .append("div")
+//       .attr("class", "bar")
+//       .style("height", (d) => d + "px")
+// </body>
+
+// Data Visualization with D3 - 9: Change the Presentation of a Bar Chart
+// <style>
+//   .bar {
+//     width: 25px;
+//     height: 100px;
+//     /* Only change code below this line */
+//     margin: 2px;
+//
+//     /* Only change code above this line */
+//     display: inline-block;
+//     background-color: blue;
+//   }
+// </style>
+// <body>
+//   <script>
+//     const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+//
+//     d3.select("body").selectAll("div")
+//       .data(dataset)
+//       .enter()
+//       .append("div")
+//       .attr("class", "bar")
+//       .style("height", (d) => (d * 10 + "px"))
+//   </script>
+// </body>
+
+// Data Visualization with D3 - 10: Learn About SVG in D3
+// <style>
+//   svg {
+//     background-color: pink;
+//   }
+// </style>
+// <body>
+//   <script>
+//     const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+//
+//     const w = 500;
+//     const h = 100;
+//     const svg = d3.select("body")
+//                   // Add your code below this line
+//     d3.select("body").append("svg").attr("width", w).attr("height", h);
+//                   // Add your code above this line
+//   </script>
+// </body>
